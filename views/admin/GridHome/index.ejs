@@ -1,0 +1,74 @@
+<%- include("../partials/header.ejs") %>
+    <h1 class="text-3xl text-black pb-6">Home Grid</h1>
+    <div class="mt-6">
+
+        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/admin/homegrid/add">
+            Add Home Grid
+        </a>
+
+
+
+    </div>
+    <div class="w-auto mt-6 overflow-auto">
+        <div class="bg-white">
+            <table class="min-w-full bg-white">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Description</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Item1</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Item2</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Item3</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Item4</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Item5</td>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Link</td>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Delete</td>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700" id="myMenu">
+                    <%grid.forEach((gridView, i)=>{ if(i%2){%>
+                        <tr class="bg-gray-200">
+                            <%}else{%>
+                        <tr>
+                            <%}%>
+                                <td class="w-1/3 text-left py-3 px-4">
+                                    <%= gridView.description %>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <%= gridView.gridItem1 %>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <%= gridView.gridItem2 %>
+                                </td>
+                                <td class="ext-left py-3 px-4">
+                                    <%= gridView.gridItem3 %>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <%= gridView.gridItem4 %>
+                                </td>
+
+                                <td class="text-left py-3 px-4">
+                                    <%= gridView.gridItem5 %>
+                                </td>
+
+                                <td class="text-left py-3 px-4">
+                                    <a class="hover:text-blue-500" href="<%= gridView.link %>">
+                                        Link
+                                    </a>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <form class="mx-2" action="/admin/homegrid/<%=gridView._id%>?_method=DELETE"
+                                        method="POST">
+                                        <button class="hover:text-red-500">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+
+                        </tr>
+                        <% })%>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <%- include("../partials/footer.ejs") %>
