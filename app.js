@@ -14,6 +14,7 @@ const passportConfig = require("./config/Passport.config");
 
 const GridHomePageRoutes = require("./routes/admin/GridHomePage.route");
 const ContactEmailRoutes = require("./routes/admin/ContactEmail.route");
+const ProjectPartnerRoutes = require("./routes/admin/ProjectPartner.routes");
 
 const {
 	isLoggedIn,
@@ -148,6 +149,7 @@ app.get("/admin", isLoggedIn, (req, res) => {
 
 app.use("/admin/homegrid", GridHomePageRoutes);
 app.use("/admin/contactemail", ContactEmailRoutes);
+app.use("/admin/projectpartner", ProjectPartnerRoutes);
 
 app.listen(3000, () => {
 	console.log(`Server started on http://localhost:3000/`);

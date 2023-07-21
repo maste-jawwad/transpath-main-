@@ -1,0 +1,63 @@
+<%- include("../partials/header.ejs") %>
+    <h1 class="text-3xl text-black pb-6">Project Partners</h1>
+    <div class="mt-6">
+        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
+            href="/admin/projectpartner/add">Add
+            Project Partners</a>
+    </div>
+
+    <div class="w-full mt-6 overflow-auto">
+        <div class="bg-white">
+            <table class="min-w-full leading-normal">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Photo
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Name
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Link
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Delete
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% projectPartners.forEach((partner, i)=>{ %>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 w-10 h-10">
+                                        <img class="w-full h-full rounded-full"
+                                            src="/uploads/Project_Partners/<%=partner.photo%>"
+                                            alt="unable to load image" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <%= partner.name %>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <a class="hover:text-blue-500" href="<%= partner.link %>">Link</a>
+                            </td>
+
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <form class="mx-2" action="/admin/projectpartner/<%=partner._id%>?_method=DELETE"
+                                    method="POST">
+                                    <button class="hover:text-red-500">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <%- include("../partials/footer.ejs") %>
