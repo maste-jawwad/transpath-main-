@@ -29,6 +29,9 @@
                             Description
                         </th>
                         <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Type
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                             LinkedIn
                         </th>
                         <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
@@ -65,6 +68,9 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <%= person.description %>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <%= person.type==="core" ? "Core Team" : person.type==="pi" ? "PI" : "Co PI" %>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <a class="hover:text-blue-500" href="<%= person.linkedin %>">LinkedIn</a>

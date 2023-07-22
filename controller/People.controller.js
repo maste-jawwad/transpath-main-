@@ -27,6 +27,7 @@ const post = async (req, res) => {
 			description,
 			linkedin,
 			twitter,
+			type,
 		} = req.body;
 
 		const photo = req.file ? req.file.filename : null;
@@ -40,6 +41,7 @@ const post = async (req, res) => {
 			linkedin,
 			twitter,
 			photo,
+			type,
 		});
 
 		await newPerson.save();

@@ -16,6 +16,7 @@ const GridHomePageRoutes = require("./routes/admin/GridHomePage.route");
 const ContactEmailRoutes = require("./routes/admin/ContactEmail.route");
 const ProjectPartnerRoutes = require("./routes/admin/ProjectPartner.routes");
 const PeopleRoutes = require("./routes/admin/People.route");
+const MorePoepleRoutes = require("./routes/admin/MorePeople.route");
 
 const {
 	isLoggedIn,
@@ -152,6 +153,7 @@ app.use("/admin/homegrid", GridHomePageRoutes);
 app.use("/admin/contactemail", ContactEmailRoutes);
 app.use("/admin/projectpartner", ProjectPartnerRoutes);
 app.use("/admin/people", PeopleRoutes);
+app.use("/admin/morepeople", MorePoepleRoutes);
 
 app.listen(3000, () => {
 	console.log(`Server started on http://localhost:3000/`);

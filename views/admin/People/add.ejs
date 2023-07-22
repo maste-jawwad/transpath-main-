@@ -54,12 +54,21 @@
                             name="twitter" rows="4" placeholder="Twitter" />
                     </div>
 
+                    <div class="mt-2">
+                        <label for="type" class="block text-sm text-gray-600">Type</label>
+                        <select class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="type" name="type">
+                            <option value="core" selected>Core Team</option>
+                            <option value="pi">PI</option>
+                            <option value="copi">Co PI</option>
+                        </select>
+                    </div>
+
                     <div class="mt-6">
                         <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
                             type="submit">Add</button>
                     </div>
                     <div class="mt-2">
-                        <a class="hover:text-blue-500" href="/admin/staffs">Go Back</a>
+                        <a class="hover:text-blue-500" href="/admin/people">Go Back</a>
                     </div>
                 </form>
 

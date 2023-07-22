@@ -33,6 +33,12 @@ const PeopleSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	type: {
+		type: String,
+		required: true,
+		default: "core",
+		// core, pi, copi
+	},
 });
 
 module.exports = mongoose.model("People", PeopleSchema);
