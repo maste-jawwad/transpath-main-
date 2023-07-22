@@ -137,3 +137,6 @@ uploads/institute_logo/*
 uploads/project_staff/*
 
 package-lock.json
+
+uploads/People/*
+uploads/Project_Partners/*
