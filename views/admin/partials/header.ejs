@@ -65,6 +65,34 @@
                     Home Grid
                 </a>
 
+                <a href="/admin/contactemail"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fas fa-users-cog mr-3"></i>
+                    Contact Email
+                </a>
+                <a href="/admin/projectpartner"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fas fa-users-cog mr-3"></i>
+                    Project Partner
+                </a>
+                <a href="/admin/people"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fas fa-users-cog mr-3"></i>
+                    People
+                </a>
+                <a href="/admin/morepeople"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fas fa-users-cog mr-3"></i>
+                    More People
+                </a>
+                <a href="/admin/publication"
+                    class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fas fa-users-cog mr-3"></i>
+                    Publications
+                </a>
+
+
+
                 <%}%>
 
         </nav>
@@ -102,41 +130,37 @@
             <!-- Dropdown Nav -->
             <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
                 <%if(currentUser){%>
+                    <a href="/admin/homegrid"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-users-cog mr-3"></i>
+                        Home Grid
+                    </a>
+                    <a href="/admin/contactemail"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-users-cog mr-3"></i>
+                        Contact Email
+                    </a>
+                    <a href="/admin/projectpartner"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-users-cog mr-3"></i>
+                        Project Partner
+                    </a>
+                    <a href="/admin/people"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-users-cog mr-3"></i>
+                        People
+                    </a>
+                    <a href="/admin/morepeople"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                        <i class="fas fa-users-cog mr-3"></i>
+                        More People
+                    </a>
                     <a href="/admin/publication"
                         class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                         <i class="fas fa-users-cog mr-3"></i>
                         Publications
                     </a>
-                    <a href="/admin/project"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-users-cog mr-3"></i>
-                        Projects
-                    </a>
-                    <a href="/admin/staffs"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-users-cog mr-3"></i>
-                        Project Staff
-                    </a>
-                    <a href="/admin/students"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-users-cog mr-3"></i>
-                        Students
-                    </a>
-                    <a href="/admin/courses"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-users-cog mr-3"></i>
-                        Courses
-                    </a>
-                    <a href="/admin/testimonials"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-users-cog mr-3"></i>
-                        Testimonials
-                    </a>
-                    <a href="/admin/resume"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                        <i class="fas fa-users-cog mr-3"></i>
-                        Resume
-                    </a>
+
 
                     <a href="/logout"
                         class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
