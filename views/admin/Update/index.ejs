@@ -1,0 +1,81 @@
+<%- include("../partials/header.ejs") %>
+    <h1 class="text-3xl text-black pb-6">Projects</h1>
+    <div class="mt-6">
+        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/admin/update/add">Add
+            Projects</a>
+
+
+
+    </div>
+    <div class="w-auto mt-6 overflow-auto">
+        <div class="bg-white">
+            <table class="min-w-full bg-white">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Title</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Category</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Date</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Basin</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">description</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">people</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Link</td>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">download</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">photos</td>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">people</td>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Delete</td>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700" id="myMenu">
+                    <% updates.forEach((project,i)=>{ if(i%2){%>
+                        <tr class="bg-gray-200">
+                            <%}else{%>
+                        <tr>
+                            <%}%>
+                                <td class="text-left py-3 px-4">
+                                    <%= project.title %>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <%= project.category %>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <%= project.dateStart.getFullYear()%>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <%= project.basin %>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <a class="hover:text-blue-500" href="<%= project.link %>" target="_blank">View</a>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <a class="hover:text-blue-500" href="/uploads/Update/<%= project.download %>"
+                                        target="_blank">Download</a>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <% project.photos.forEach((photo)=> { %>
+                                        <img src="/uploads/Update/<%= photo %>" />
+                                        <% }) %>
+                                </td>
+                                <td class="text-left py-3 px-4">
+                                    <% project.people.forEach(person=> { %>
+                                        <%= person.name %> <br />
+                                            <%= person.designation %> <br />
+                                                <%= person.department %> <br />
+                                                    <%= person.institute %> <br />
+                                                        <% }) %>
+                                </td>
+
+                                <td class="text-left py-3 px-4">
+                                    <form class="mx-2" action="/admin/project/<%=project._id%>?method=delete"
+                                        method="POST">
+                                        <button class="hover:text-red-500">Delete</button>
+                                    </form>
+                                </td>
+
+                        </tr>
+                        <% })%>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <%- include("../partials/footer.ejs") %>
