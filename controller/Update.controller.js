@@ -26,30 +26,30 @@ const post = async (req, res) => {
 			req.body;
 		// console.log(req.body);
 		// console.log(req.files);
-		const download = req.files.download;
+		const download = req.files.download[0].filename;
 		const photos = [];
 		req.files.photos.forEach((file, i) => {
 			photos.push(file.filename);
 		});
 		console.log(download);
-		const newUpdate = new Schema({
-			title,
-			category,
-			date,
-			basin,
-			link,
-			description,
-			people,
-			download,
-			photos,
-		});
+		// const newUpdate = new Schema({
+		// 	title,
+		// 	category,
+		// 	date,
+		// 	basin,
+		// 	link,
+		// 	description,
+		// 	people,
+		// 	download,
+		// 	photos,
+		// });
+		// await newUpdate.save();
+		// if (!newUpdate) {
+		// 	req.flash("error", "Unable to create the update");
+		// 	return res.redirect("/admin/update/add");
+		// }
 
-		if (!newUpdate) {
-			req.flash("error", "Unable to create the update");
-			return res.redirect("/admin/update/add");
-		}
-
-		console.log(newUpdate);
+		// console.log(newUpdate);
 		res.redirect("/admin/update/");
 		// res.send(req.files);
 	} catch (error) {
