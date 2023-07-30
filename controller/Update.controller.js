@@ -5,7 +5,7 @@ const Schema = require("../model/Update.model");
 const view = async (req, res) => {
 	try {
 		const updates = await Schema.find({});
-		console.log(updates);
+		// console.log(updates);
 		res.render("admin/Update/index", {
 			updates,
 		});
@@ -22,34 +22,54 @@ const add = (req, res) => {
 
 const post = async (req, res) => {
 	try {
-		const { title, category, date, basin, link, description, people } =
-			req.body;
-		// console.log(req.body);
+		const { title, category, date, basin, link, description } = req.body;
+		console.log(req.body);
+		let people = [];
+		if (req.body["people[][name]"] instanceof Array) {
+			let size = req.body["people[][name]"].length;
+			for (let i = 0; i < size; i++) {
+				const instance = {
+					name: req.body["people[][name]"][i],
+					designation: req.body["people[][designation]"][i],
+					department: req.body["people[][department]"][i],
+					institute: req.body["people[][name]"][i],
+				};
+				people.push(instance);
+			}
+		} else {
+			people.push({
+				name: req.body["people[][name]"],
+				designation: req.body["people[][designation]"],
+				department: req.body["people[][department]"],
+				institute: req.body["people[][name]"],
+			});
+		}
+		console.log(people);
 		// console.log(req.files);
 		const download = req.files.download[0].filename;
 		const photos = [];
 		req.files.photos.forEach((file, i) => {
 			photos.push(file.filename);
 		});
-		console.log(download);
-		// const newUpdate = new Schema({
-		// 	title,
-		// 	category,
-		// 	date,
-		// 	basin,
-		// 	link,
-		// 	description,
-		// 	people,
-		// 	download,
-		// 	photos,
-		// });
-		// await newUpdate.save();
-		// if (!newUpdate) {
-		// 	req.flash("error", "Unable to create the update");
-		// 	return res.redirect("/admin/update/add");
-		// }
+		// console.log(download);
+		const newUpdate = new Schema({
+			title,
+			category,
+			date,
+			basin,
+			link,
+			description,
+			people,
+			download,
+			photos,
+		});
+		console.log(newUpdate);
+		await newUpdate.save();
+		if (!newUpdate) {
+			req.flash("error", "Unable to create the update");
+			return res.redirect("/admin/update/add");
+		}
 
-		// console.log(newUpdate);
 		res.redirect("/admin/update/");
 		// res.send(req.files);
 	} catch (error) {
@@ -68,7 +88,7 @@ const remove = async (req, res) => {
 			return res.redirect("/admin/update");
 		}
 		await Schema.findByIdAndDelete(id);
-		const foldername = projet.title.replace(/\s/g, "").toLowerCase();
+		const foldername = update.title.replace(/\s/g, "").toLowerCase();
 		fs.rmdirSync(`./uploads/Update/${foldername}`, {
 			recursive: true,
 			force: true,

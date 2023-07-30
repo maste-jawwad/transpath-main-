@@ -17,10 +17,9 @@
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Date</th>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Basin</th>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">description</th>
-                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">people</th>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Link</td>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">download</th>
-                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">photos</td>
+                        <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">photos</td>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">people</td>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Delete</td>
                     </tr>
@@ -38,34 +37,39 @@
                                     <%= project.category %>
                                 </td>
                                 <td class="text-left py-3 px-4">
-                                    <%= project.dateStart.getFullYear()%>
+                                    <%= project.date.getFullYear()%>
                                 </td>
                                 <td class="text-left py-3 px-4">
                                     <%= project.basin %>
                                 </td>
                                 <td class="text-left py-3 px-4">
+                                    <%= project.description %>
+                                </td>
+                                <td class="text-left py-3 px-4">
                                     <a class="hover:text-blue-500" href="<%= project.link %>" target="_blank">View</a>
                                 </td>
                                 <td class="text-left py-3 px-4">
-                                    <a class="hover:text-blue-500" href="/uploads/Update/<%= project.download %>"
+                                    <a class="hover:text-blue-500"
+                                        href="/uploads/Update/<%= project.title.replace(/\s/g, '').toLowerCase() %>/<%= project.download %>"
                                         target="_blank">Download</a>
                                 </td>
-                                <td class="text-left py-3 px-4">
+                                <td class="text-left py-3 px-4 w-1/5">
                                     <% project.photos.forEach((photo)=> { %>
-                                        <img src="/uploads/Update/<%= photo %>" />
+                                        <img class="w-full h-full"
+                                            src="/uploads/Update/<%= project.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>" />
                                         <% }) %>
                                 </td>
                                 <td class="text-left py-3 px-4">
                                     <% project.people.forEach(person=> { %>
-                                        <%= person.name %> <br />
-                                            <%= person.designation %> <br />
-                                                <%= person.department %> <br />
-                                                    <%= person.institute %> <br />
+                                        Name: <%= person.name %> <br />
+                                            Designation: <%= person.designation %> <br />
+                                                Department: <%= person.department %> <br />
+                                                    Institute: <%= person.institute %> <br />
                                                         <% }) %>
                                 </td>
 
                                 <td class="text-left py-3 px-4">
-                                    <form class="mx-2" action="/admin/project/<%=project._id%>?method=delete"
+                                    <form class="mx-2" action="/admin/update/<%=project._id%>?_method=delete"
                                         method="POST">
                                         <button class="hover:text-red-500">Delete</button>
                                     </form>
