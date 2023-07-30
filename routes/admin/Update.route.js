@@ -3,6 +3,7 @@ const fs = require("fs");
 const multer = require("multer");
 
 const Controller = require("../../controller/Update.controller");
+const { isLoggedIn } = require("../../middleware/Auth.middleware");
 
 const router = express.Router();
 
@@ -29,16 +30,17 @@ const storage = multer.diskStorage({
 
 const uploads = multer({ storage });
 
-router.get("/", Controller.view);
-router.get("/add", Controller.add);
+router.get("/", isLoggedIn, Controller.view);
+router.get("/add", isLoggedIn, Controller.add);
 router.post(
 	"/",
+	isLoggedIn,
 	uploads.fields([
 		{ name: "download", maxCount: 1 },
 		{ name: "photos", maxCount: 5 },
 	]),
 	Controller.post
 );
-router.delete("/:id", Controller.remove);
+router.delete("/:id", isLoggedIn, Controller.remove);
 
 module.exports = router;

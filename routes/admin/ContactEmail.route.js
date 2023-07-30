@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
+const { isLoggedIn } = require("../../middleware/Auth.middleware");
+
 const Controller = require("../../controller/ContactEmail.controller");
 
-router.get("/", Controller.viewEmail);
+router.get("/", isLoggedIn, Controller.viewEmail);
 
-router.get("/add", Controller.addEmailForm);
+router.get("/add", isLoggedIn, Controller.addEmailForm);
 
-router.post("/", Controller.postEmail);
+router.post("/", isLoggedIn, Controller.postEmail);
 
-router.delete("/:id", Controller.deleteEmail);
+router.delete("/:id", isLoggedIn, Controller.deleteEmail);
 
 module.exports = router;

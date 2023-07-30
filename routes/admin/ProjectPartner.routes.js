@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 
 const Controller = require("../../controller/ProjectPartner.controller");
+const { isLoggedIn } = require("../../middleware/Auth.middleware");
 
 const router = express.Router();
 
@@ -17,9 +18,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.get("/", Controller.viewProjectPartner);
-router.get("/add", Controller.addProjectPartnerForm);
-router.post("/", upload.single("photo"), Controller.postProjectPartner);
-router.delete("/:id", Controller.deleteProjectPartner);
+router.get("/", isLoggedIn, Controller.viewProjectPartner);
+router.get("/add", isLoggedIn, Controller.addProjectPartnerForm);
+router.post(
+	"/",
+	isLoggedIn,
+	upload.single("photo"),
+	Controller.postProjectPartner
+);
+router.delete("/:id", isLoggedIn, Controller.deleteProjectPartner);
 
 module.exports = router;

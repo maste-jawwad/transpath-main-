@@ -12,6 +12,14 @@ const helmet = require("helmet");
 
 const passportConfig = require("./config/Passport.config");
 
+const ContactEmail = require("./model/ContactEmail.model");
+const GridHomePage = require("./model/GridHomePage.model");
+const MorePeople = require("./model/MorePeople.model");
+const People = require("./model/People.model");
+const ProjectPartner = require("./model/ProjectPartner.model");
+const Publication = require("./model/Publication.model");
+const Update = require("./model/Update.model");
+
 const GridHomePageRoutes = require("./routes/admin/GridHomePage.route");
 const ContactEmailRoutes = require("./routes/admin/ContactEmail.route");
 const ProjectPartnerRoutes = require("./routes/admin/ProjectPartner.routes");
@@ -85,33 +93,92 @@ app.use((req, res, next) => {
 
 app.use(express.static(`${__dirname}/public`));
 app.use(express.static(`${__dirname}/static`));
+app.use("/", express.static(`${__dirname}/public`));
 app.use("/static", express.static(`${__dirname}/static`));
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 passportConfig(passport);
 
 app.get("/", async (req, res) => {
-	res.send(`Hello World`);
+	try {
+		const email = await ContactEmail.find({});
+		const grids = await GridHomePage.find({});
+		const partners = await ProjectPartner.find({});
+
+		res.render("main/index", {
+			email: email[0],
+			grids,
+			partners,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.get("/about", async (req, res) => {
-	res.send("About");
+	try {
+		const people = await People.find({});
+		const morePeople = await MorePeople.find({});
+		const email = await ContactEmail.find({});
+		res.render("main/about", {
+			people,
+			morePeople,
+			email: email[0],
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.get("/stream-1", async (req, res) => {
-	res.send("Coming Soon");
+	try {
+		res.send("Coming Soon");
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.get("/stream-2", async (req, res) => {
-	res.send("stream2");
+	try {
+		const updates = await Update.find({});
+		const email = await ContactEmail.find({});
+		res.render("main/stream-2", {
+			updates,
+			email: email[0],
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.get("/publication", async (req, res) => {
-	res.send("/publication");
+	try {
+		const publications = await Publication.find({});
+		const email = await ContactEmail.find({});
+		res.render("main/publication", {
+			publications,
+			email: email[0],
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.get("/output", async (req, res) => {
-	res.send("/output");
+	try {
+		const email = await ContactEmail.find({});
+		res.render("main/output", {
+			email: email[0],
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.get("/login", forwardAuthenticated, (req, res) => {

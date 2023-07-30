@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
+const { isLoggedIn } = require("../../middleware/Auth.middleware");
+
 const Controller = require("../../controller/GridHomePage.controller");
 
-router.get("/", Controller.getGridHome);
+router.get("/", isLoggedIn, Controller.getGridHome);
 
-router.get("/add", Controller.addGridForm);
+router.get("/add", isLoggedIn, Controller.addGridForm);
 
-router.post("/", Controller.postGrid);
+router.post("/", isLoggedIn, Controller.postGrid);
 
-router.delete("/:id", Controller.deleteGrid);
+router.delete("/:id", isLoggedIn, Controller.deleteGrid);
 
 module.exports = router;
