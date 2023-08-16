@@ -7,9 +7,12 @@ const Controller = require("../../controller/GridHomePage.controller");
 
 router.get("/", isLoggedIn, Controller.getGridHome);
 
-router.get("/add", isLoggedIn, Controller.addGridForm);
+// router.get("/add", isLoggedIn, Controller.addGridForm);
 
-router.post("/", isLoggedIn, Controller.postGrid);
+// router.post("/", isLoggedIn, Controller.postGrid);
+
+router.get("/:id", isLoggedIn, Controller.getSingleGrid);
+router.post("/:id", isLoggedIn, Controller.editGrid);
 
 router.delete("/:id", isLoggedIn, Controller.deleteGrid);
 

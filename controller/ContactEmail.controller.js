@@ -19,6 +19,7 @@ const addEmailForm = async (req, res) => {
 
 const postEmail = async (req, res) => {
 	try {
+		await Email.deleteMany({});
 		const { email } = req.body;
 		if (!email || email.length == 0) {
 			res.send({ message: "Incomplete fields" });

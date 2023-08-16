@@ -1,6 +1,13 @@
 const bcrypt = require("bcryptjs");
 
 const User = require("./model/User.model");
+const ContactEmail = require("./model/ContactEmail.model");
+const GridHomePage = require("./model/GridHomePage.model");
+const MorePeople = require("./model/MorePeople.model");
+const People = require("./model/People.model");
+const ProjectPartner = require("./model/ProjectPartner.model");
+const Publication = require("./model/Publication.model");
+const Update = require("./model/Update.model");
 
 const createAdmin = () => {
 	const newUser = new User({
@@ -19,8 +26,8 @@ const createAdmin = () => {
 	});
 };
 
-const deleteUser = () => {
-	User.deleteMany({}, (err) => {
+const deleteUser = async () => {
+	await User.deleteMany({}, (err) => {
 		if (err) {
 			console.log(err);
 		} else {
@@ -29,7 +36,22 @@ const deleteUser = () => {
 	});
 };
 
+const clearDB = async () => {
+	try {
+		await ContactEmail.deleteMany({});
+		await GridHomePage.deleteMany({});
+		await MorePeople.deleteMany({});
+		await People.deleteMany({});
+		await ProjectPartner.deleteMany({});
+		await Publication.deleteMany({});
+		await Update.deleteMany({});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 module.exports = {
 	createAdmin,
 	deleteUser,
+	clearDB,
 };

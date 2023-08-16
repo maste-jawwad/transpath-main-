@@ -1,14 +1,10 @@
 <%- include("../partials/header.ejs") %>
     <h1 class="text-3xl text-black pb-6">Home Grid</h1>
-    <div class="mt-6">
-
+    <!-- <div class="mt-6">
         <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/admin/homegrid/add">
             Add Home Grid
         </a>
-
-
-
-    </div>
+    </div> -->
     <div class="w-auto mt-6 overflow-auto">
         <div class="bg-white">
             <table class="min-w-full bg-white">
@@ -21,7 +17,7 @@
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Item4</th>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Item5</td>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Link</td>
-                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Delete</td>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Edit</td>
                     </tr>
                 </thead>
                 <tbody class="text-gray-700" id="myMenu">
@@ -56,12 +52,13 @@
                                     </a>
                                 </td>
                                 <td class="text-left py-3 px-4">
-                                    <form class="mx-2" action="/admin/homegrid/<%=gridView._id%>?_method=DELETE"
+                                    <!-- <form class="mx-2" action="/admin/homegrid/<%=gridView._id%>?_method=DELETE"
                                         method="POST">
                                         <button class="hover:text-red-500">
                                             Delete
                                         </button>
-                                    </form>
+                                    </form> -->
+                                    <a href="/admin/homegrid/<%=gridView._id%>">Edit</a>
                                 </td>
 
                         </tr>

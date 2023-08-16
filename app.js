@@ -32,7 +32,7 @@ const {
 	isLoggedIn,
 	forwardAuthenticated,
 } = require("./middleware/Auth.middleware");
-const { createAdmin, deleteUser } = require("./helper");
+const { createAdmin, deleteUser, clearDB } = require("./helper");
 
 const app = express();
 
@@ -99,6 +99,8 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 
 passportConfig(passport);
 
+// clearDB();
+
 app.get("/", async (req, res) => {
 	try {
 		const email = await ContactEmail.find({});
@@ -145,9 +147,24 @@ app.get("/stream-2", async (req, res) => {
 	try {
 		const updates = await Update.find({});
 		const email = await ContactEmail.find({});
+		const months = [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec",
+		];
 		res.render("main/stream-2", {
 			updates,
 			email: email[0],
+			months,
 		});
 	} catch (error) {
 		console.log(error);
@@ -222,7 +239,7 @@ app.use("/admin/homegrid", GridHomePageRoutes);
 app.use("/admin/contactemail", ContactEmailRoutes);
 app.use("/admin/projectpartner", ProjectPartnerRoutes);
 app.use("/admin/people", PeopleRoutes);
-app.use("/admin/morepeople", MorePoepleRoutes);
+app.use("/admin/phds", MorePoepleRoutes);
 app.use("/admin/publication", PublicationRoutes);
 app.use("/admin/update", UpdateRoutes);
 

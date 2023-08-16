@@ -14,46 +14,46 @@
                 <p>The link should start with "https://"</p>
             </div>
             <div class="leading-loose">
-                <form class="p-10 bg-white rounded shadow-xl" action="/admin/homegrid" method="POST">
+                <form class="p-10 bg-white rounded shadow-xl" action="/admin/homegrid/<%= grid._id %>" method="POST">
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="description">Description</label>
                         <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="description" type="text"
-                            name="description" placeholder="Description">
+                            name="description" placeholder="Description" value="<%= grid.description %>">
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="item1">Item 1</label>
                         <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="item1" type="text"
-                            name="gridItem1" placeholder="Item 1">
+                            name="gridItem1" placeholder="Item 1" value="<%= grid.gridItem1 %>">
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="item2">Item 2</label>
                         <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="item2" type="text"
-                            name="gridItem2" placeholder="Item 2">
+                            name="gridItem2" placeholder="Item 2" value="<%= grid.gridItem2 %>">
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="item3">Item 3</label>
                         <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="item3" type="text"
-                            name="gridItem3" placeholder="Item 3">
+                            name="gridItem3" placeholder="Item 3" value="<%= grid.gridItem3 %>">
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="item4">Item 4</label>
                         <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="item4" type="text"
-                            name="gridItem4" placeholder="Item 4">
+                            name="gridItem4" placeholder="Item 4" value="<%= grid.gridItem4 %>">
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="item5">Item 5</label>
                         <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="item5" type="text"
-                            name="gridItem5" placeholder="Item 5">
+                            name="gridItem5" placeholder="Item 5" value="<%= grid.gridItem5 %>">
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="link">Link</label>
                         <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="link" type="text"
-                            name="link" placeholder="Link">
+                            name="link" placeholder="Link" value="<%= grid.link %>">
                     </div>
 
                     <div class="mt-6">
                         <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-                            type="submit">Add</button>
+                            type="submit">Edit</button>
                     </div>
 
                     <div class="mt-2">

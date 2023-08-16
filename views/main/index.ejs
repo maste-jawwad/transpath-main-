@@ -1,6 +1,7 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
 <!--  Last Published: Sun Jul 30 2023 05:19:42 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="646b1c84a7e64d810254ac9f" data-wf-site="646b1c84a7e64d810254ac83">
+
 <head>
   <meta charset="utf-8">
   <title>water-tpt</title>
@@ -9,95 +10,110 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/water-tpt.webflow.css" rel="stylesheet" type="text/css">
-  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <script
+    type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <style>
-body {
-  overflow-x:hidden;
-}
-.isdeets-overlay {
-  overflow-x:hidden;
-}
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: #E0E0E2;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #96969C;
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #39393C;
-}
-::-moz-selection { /* Code for Firefox */
-  color: auto;
-  background: #7a7a7f;
-}
-::selection {
-  color: auto;
-  background: #7a7a7f;
-}
-.isproj-overlay {
-  overflow-x:hidden;
-}
-</style>
+    body {
+      overflow-x: hidden;
+    }
+
+    .isdeets-overlay {
+      overflow-x: hidden;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #E0E0E2;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #96969C;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #39393C;
+    }
+
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: auto;
+      background: #7a7a7f;
+    }
+
+    ::selection {
+      color: auto;
+      background: #7a7a7f;
+    }
+
+    .isproj-overlay {
+      overflow-x: hidden;
+    }
+  </style>
   <script>
-//refresh
-var context;
-var $window = $(window);
-// run this right away to set context
-if ($window.width() <= 991 && $window.width() >= 500 ) {
-    context = 'small';
-} else if ($window.width() > 991){
-    context = 'large';
-}
-// refresh the page only if you're crossing into a context
-// that isn't already set
-$(window).resize(function() {
-    if(($window.width() <= 991) && ($window.width() >= 500) && (context != 'small')) {
+    //refresh
+    var context;
+    var $window = $(window);
+    // run this right away to set context
+    if ($window.width() <= 991 && $window.width() >= 500) {
+      context = 'small';
+    } else if ($window.width() > 991) {
+      context = 'large';
+    }
+    // refresh the page only if you're crossing into a context
+    // that isn't already set
+    $(window).resize(function () {
+      if (($window.width() <= 991) && ($window.width() >= 500) && (context != 'small')) {
         //refresh the page
         location.reload();
-    } else if (context != 'large' && ($window.width() > 991)) {
-    		location.reload();
-    }
-});
-</script>
+      } else if (context != 'large' && ($window.width() > 991)) {
+        location.reload();
+      }
+    });
+  </script>
   <style>
-.is-parent-container .is-preloader {
-	display: flex;
-}
-</style>
+    .is-parent-container .is-preloader {
+      display: flex;
+    }
+  </style>
 </head>
+
 <body>
   <div class="is-menu-container">
     <div class="is-part-menu">
-      <div style="-webkit-transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="is-nav-cont">
+      <div
+        style="-webkit-transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+        class="is-nav-cont">
         <div class="is16 is-hori is-in-menu">
           <div class="is-dummy"></div>
           <div style="opacity:0" class="is24 is-menu-part is-1">
             <h5 class="is-w65">Who we are</h5>
             <div class="is-hori-line is-white"></div>
             <div class="is16 is-hori is-menu-part">
-              <a href="index.html" aria-current="page" class="is-page w-inline-block w--current">
+              <a href="/" aria-current="page" class="is-page w-inline-block w--current">
                 <div data-w-id="9c6b0f3e-8b05-def4-5bb7-dd0ba2af0492" class="is-page-card">
                   <div style="opacity:0" class="is-menu-img-cont"></div>
                   <div class="is-icon-wrapper">
-                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img src="images/u_home-alt.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
+                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img
+                        src="images/u_home-alt.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
                   </div>
                   <div style="opacity:0.65" class="isbody is-w65">Home</div>
                 </div>
               </a>
-              <a href="about.html" class="is-page w-inline-block">
+              <a href="/about" class="is-page w-inline-block">
                 <div data-w-id="52ddd330-03d4-5eee-f1e1-1144caed27b0" class="is-page-card">
                   <div class="is-menu-img-cont is-2"></div>
                   <div class="is-icon-wrapper">
-                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img src="images/u_users-alt.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
+                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img
+                        src="images/u_users-alt.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
                   </div>
                   <div style="opacity:0.65" class="isbody is-w65">About Us</div>
                 </div>
@@ -112,7 +128,8 @@ $(window).resize(function() {
                 <div data-w-id="1646922b-4f41-6018-3a66-5450fd96591c" class="is-page-card">
                   <div class="is-menu-img-cont is-3"></div>
                   <div class="is-icon-wrapper">
-                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img src="images/u_trophy.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
+                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img
+                        src="images/u_trophy.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
                   </div>
                   <div class="is4">
                     <div class="isbody is-w65 is-smol"><em>Coming soon</em></div>
@@ -120,11 +137,12 @@ $(window).resize(function() {
                   </div>
                 </div>
               </a>
-              <a href="stream-2.html" class="is-page w-inline-block">
+              <a href="/stream-2" class="is-page w-inline-block">
                 <div data-w-id="1646922b-4f41-6018-3a66-5450fd965923" class="is-page-card">
                   <div class="is-menu-img-cont is-4"></div>
                   <div class="is-icon-wrapper">
-                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img src="images/u_paperclip.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
+                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img
+                        src="images/u_paperclip.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
                   </div>
                   <div style="opacity:0.65" class="isbody is-w65">Stream 2</div>
                 </div>
@@ -135,20 +153,22 @@ $(window).resize(function() {
             <h5 class="is-w65">What we pledged</h5>
             <div class="is-hori-line is-white"></div>
             <div class="is16 is-hori is-menu-part">
-              <a href="publication.html" class="is-page w-inline-block">
+              <a href="/publication" class="is-page w-inline-block">
                 <div data-w-id="011688ca-0b8f-fff4-7f6b-4aaa620dc3a4" class="is-page-card">
                   <div class="is-menu-img-cont is-5"></div>
                   <div class="is-icon-wrapper">
-                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img src="images/u_newspaper.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
+                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img
+                        src="images/u_newspaper.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
                   </div>
                   <div style="opacity:0.65" class="isbody is-w65">Publications</div>
                 </div>
               </a>
-              <a href="output.html" class="is-page w-inline-block">
+              <a href="/output" class="is-page w-inline-block">
                 <div data-w-id="011688ca-0b8f-fff4-7f6b-4aaa620dc3ab" class="is-page-card">
                   <div class="is-menu-img-cont is-6"></div>
                   <div class="is-icon-wrapper">
-                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img src="images/u_graph-bar.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
+                    <div style="opacity:0.65;background-color:rgba(0,0,0,0)" class="is-icon"><img
+                        src="images/u_graph-bar.svg" loading="lazy" width="24" alt="" class="icon-png"></div>
                   </div>
                   <div style="opacity:0.65" class="isbody is-w65">Outputs</div>
                 </div>
@@ -158,11 +178,16 @@ $(window).resize(function() {
         </div>
       </div>
       <div class="is-pill-cont">
-        <div data-w-id="02ee22c1-bdcc-b6a6-4729-673b20b9acfe" style="background-color:rgba(252,251,248,0.8);border-color:rgb(252,251,248)" class="is12 is-menu-pill">
+        <div data-w-id="02ee22c1-bdcc-b6a6-4729-673b20b9acfe"
+          style="background-color:rgba(252,251,248,0.8);border-color:rgb(252,251,248)" class="is12 is-menu-pill">
           <div style="color:rgb(40,49,46)" class="isbody">Menu</div>
           <div class="div-block-12">
-            <div style="-webkit-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="is-sm-arr"><img src="images/ARROW-DOWN-SM-B.svg" loading="lazy" width="12" alt=""></div>
-            <div style="-webkit-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="is-sm-arr is-w"><img src="images/ARROW-UP-W.svg" loading="lazy" width="12" alt=""></div>
+            <div
+              style="-webkit-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+              class="is-sm-arr"><img src="images/ARROW-DOWN-SM-B.svg" loading="lazy" width="12" alt=""></div>
+            <div
+              style="-webkit-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+              class="is-sm-arr is-w"><img src="images/ARROW-UP-W.svg" loading="lazy" width="12" alt=""></div>
           </div>
         </div>
       </div>
@@ -196,13 +221,15 @@ $(window).resize(function() {
                 <div class="is-left-cont is-card-part">
                   <div class="is120">
                     <div id="is-landing" class="is-block">
-                      <div class="is36"><img src="images/DUPC-IHE-logo-RGB-3.png" loading="lazy" sizes="200px" srcset="images/DUPC-IHE-logo-RGB-3-p-500.png 500w, images/DUPC-IHE-logo-RGB-3.png 800w" alt="" class="is-logo">
+                      <div class="is36"><img src="images/DUPC-IHE-logo-RGB-3.png" loading="lazy" sizes="200px"
+                          srcset="images/DUPC-IHE-logo-RGB-3-p-500.png 500w, images/DUPC-IHE-logo-RGB-3.png 800w" alt=""
+                          class="is-logo">
                         <h1>Water Transformation Pathways Planning</h1>
                         <div class="is24 is-hori">
-                          <a href="output.html" class="is-button w-inline-block">
+                          <a href="/output" class="is-button w-inline-block">
                             <div class="isbody">Output</div>
                           </a><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
-                          <a href="publication.html" class="is-button w-inline-block">
+                          <a href="/publication" class="is-button w-inline-block">
                             <div class="isbody">Publications</div>
                           </a>
                         </div>
@@ -222,9 +249,11 @@ $(window).resize(function() {
                                   <h5>Project Objective</h5>
                                 </div>
                               </div>
-                              <h2 class="is-inside-card">Develop planning tools, approaches and concepts to support a pro-active, adaptive, joint management of transformation pathways in the water sector.</h2>
+                              <h2 class="is-inside-card">Develop planning tools, approaches and concepts to support a
+                                pro-active, adaptive, joint management of transformation pathways in the water sector.
+                              </h2>
                               <div class="is24 is-hori is-inside">
-                                <a href="about.html" class="is-button w-inline-block">
+                                <a href="/about" class="is-button w-inline-block">
                                   <div class="isbody">About Us</div>
                                 </a>
                               </div>
@@ -243,7 +272,7 @@ $(window).resize(function() {
                                     </div>
                                     <div class="is24 is-inside">
                                       <div class="is24 is-hori">
-                                        <a href="output.html" class="is-button is-w w-inline-block">
+                                        <a href="/output" class="is-button is-w w-inline-block">
                                           <div class="isbody is-w65">Project Output</div>
                                         </a>
                                       </div>
@@ -253,20 +282,35 @@ $(window).resize(function() {
                                 <div class="is-right-slide">
                                   <div class="is-right-cont is-in-stream">
                                     <div class="is-card-grid">
-                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c71c-0254ac9f" class="is-grid-item is-proj-1">
-                                        <div class="isbody is-w65">Case Specific Benefits</div>
+                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c71c-0254ac9f"
+                                        class="is-grid-item is-proj-1">
+                                        <div class="isbody is-w65">
+                                          <%= grids[0].gridItem1 %>
+                                        </div>
                                       </div>
-                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c71f-0254ac9f" class="is-grid-item is-proj-2">
-                                        <div class="isbody is-w65">Trained Researchers</div>
+                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c71f-0254ac9f"
+                                        class="is-grid-item is-proj-2">
+                                        <div class="isbody is-w65">
+                                          <%= grids[0].gridItem2 %>
+                                        </div>
                                       </div>
-                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c722-0254ac9f" class="is-grid-item is-proj-3">
-                                        <div class="isbody is-w65">Scientific Knowledge</div>
+                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c722-0254ac9f"
+                                        class="is-grid-item is-proj-3">
+                                        <div class="isbody is-w65">
+                                          <%= grids[0].gridItem3 %>
+                                        </div>
                                       </div>
-                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c725-0254ac9f" class="is-grid-item is-proj-1">
-                                        <div class="isbody is-w65">Training Materials</div>
+                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c725-0254ac9f"
+                                        class="is-grid-item is-proj-1">
+                                        <div class="isbody is-w65">
+                                          <%= grids[0].gridItem4 %>
+                                        </div>
                                       </div>
-                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c728-0254ac9f" class="is-grid-item is-proj-5">
-                                        <div class="isbody is-w65">International Network Trans-path Planning Experts</div>
+                                      <div id="w-node-c6032620-74b6-7110-8924-3ea23260c728-0254ac9f"
+                                        class="is-grid-item is-proj-5">
+                                        <div class="isbody is-w65">
+                                          <%= grids[0].gridItem5 %>
+                                        </div>
                                       </div>
                                     </div><img src="images/Ongoing.svg" loading="lazy" width="75" alt="">
                                   </div>
@@ -279,7 +323,8 @@ $(window).resize(function() {
                               <div class="is-within-card">
                                 <div class="is-left-slide">
                                   <div class="div-block-8">
-                                    <div data-w-id="cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fed7" class="is-left-cont is-in-stream is-02">
+                                    <div data-w-id="cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fed7"
+                                      class="is-left-cont is-in-stream is-02">
                                       <div class="is-sub">
                                         <div class="is24 is-hori is-02">
                                           <h5 class="is-w65">03</h5>
@@ -287,7 +332,11 @@ $(window).resize(function() {
                                         </div>
                                       </div>
                                       <div class="is24 is-inside">
-                                        <div class="isbody is-w65 isincard">The case studies cover problem diagnosis, intervention and analysis, design for research and intervention, and exploring impact and reflection. The institute hopes that by showcasing the benefits of a transdisciplinary approach, they can inspire others to contribute to sustainable water systems.</div>
+                                        <div class="isbody is-w65 isincard">The case studies cover problem diagnosis,
+                                          intervention and analysis, design for research and intervention, and exploring
+                                          impact and reflection. The institute hopes that by showcasing the benefits of
+                                          a transdisciplinary approach, they can inspire others to contribute to
+                                          sustainable water systems.</div>
                                         <div class="is24 is-hori">
                                           <a href="#" class="is-button is-w w-inline-block">
                                             <div class="isbody is-w65">Stream 1</div>
@@ -297,20 +346,35 @@ $(window).resize(function() {
                                     </div>
                                     <div class="is-right-cont is-in-stream is-ls is-inside-03">
                                       <div class="is-card-grid">
-                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fee4-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Case Specific Benefits</div>
+                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fee4-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[1].gridItem1 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fee7-0254ac9f" class="is-grid-item is-out2">
-                                          <div class="isbody is-w65">Trained Researchers</div>
+                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fee7-0254ac9f"
+                                          class="is-grid-item is-out2">
+                                          <div class="isbody is-w65">
+                                            <%= grids[1].gridItem2 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8feea-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Scientific Knowledge</div>
+                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8feea-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[1].gridItem3 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8feed-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Training Materials</div>
+                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8feed-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[1].gridItem4 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fef0-0254ac9f" class="is-grid-item is-out5">
-                                          <div class="isbody is-w65">International Network Trans-path Planning Experts</div>
+                                        <div id="w-node-cd1a0b37-7abd-09b1-7fb3-8dbdf5a8fef0-0254ac9f"
+                                          class="is-grid-item is-out5">
+                                          <div class="isbody is-w65">
+                                            <%= grids[1].gridItem5 %>
+                                          </div>
                                         </div>
                                       </div><img src="images/Ongoing.svg" loading="lazy" width="75" alt="">
                                     </div>
@@ -318,22 +382,38 @@ $(window).resize(function() {
                                 </div>
                                 <div class="is-right-slide">
                                   <div class="div-block-9">
-                                    <div data-w-id="b9623251-9872-41d5-6851-5db05372d685" class="is-right-cont is-in-stream">
+                                    <div data-w-id="b9623251-9872-41d5-6851-5db05372d685"
+                                      class="is-right-cont is-in-stream">
                                       <div class="is-card-grid">
-                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d687-0254ac9f" class="is-grid-item">
-                                          <div class="isbody is-w65">Case Specific Benefits</div>
+                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d687-0254ac9f"
+                                          class="is-grid-item">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem1 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d68a-0254ac9f" class="is-grid-item is-out2">
-                                          <div class="isbody is-w65">Trained Researchers</div>
+                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d68a-0254ac9f"
+                                          class="is-grid-item is-out2">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem2 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d68d-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Scientific Knowledge</div>
+                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d68d-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem3 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d690-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Training Materials</div>
+                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d690-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem4 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d693-0254ac9f" class="is-grid-item is-out5">
-                                          <div class="isbody is-w65">International Network Trans-path Planning Experts</div>
+                                        <div id="w-node-b9623251-9872-41d5-6851-5db05372d693-0254ac9f"
+                                          class="is-grid-item is-out5">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem5 %>
+                                          </div>
                                         </div>
                                       </div><img src="images/Ongoing.svg" loading="lazy" width="75" alt="">
                                     </div>
@@ -345,9 +425,13 @@ $(window).resize(function() {
                                         </div>
                                       </div>
                                       <div class="is24 is-inside">
-                                        <div class="isbody is-w65 isincard">The case studies cover problem diagnosis, intervention and analysis, design for research and intervention, and exploring impact and reflection. The institute hopes that by showcasing the benefits of a transdisciplinary approach, they can inspire others to contribute to sustainable water systems.</div>
+                                        <div class="isbody is-w65 isincard">The case studies cover problem diagnosis,
+                                          intervention and analysis, design for research and intervention, and exploring
+                                          impact and reflection. The institute hopes that by showcasing the benefits of
+                                          a transdisciplinary approach, they can inspire others to contribute to
+                                          sustainable water systems.</div>
                                         <div class="is24 is-hori">
-                                          <a href="stream-2.html" class="is-button is-w w-inline-block">
+                                          <a href="/stream-2" class="is-button is-w w-inline-block">
                                             <div class="isbody is-w65">Stream 2</div>
                                           </a>
                                         </div>
@@ -365,20 +449,35 @@ $(window).resize(function() {
                                   <div class="div-block-8">
                                     <div class="is-right-cont is-in-stream is-ls">
                                       <div class="is-card-grid">
-                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c0-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Case Specific Benefits</div>
+                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c0-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem1 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c3-0254ac9f" class="is-grid-item is-out2">
-                                          <div class="isbody is-w65">Trained Researchers</div>
+                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c3-0254ac9f"
+                                          class="is-grid-item is-out2">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem2 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c6-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Scientific Knowledge</div>
+                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c6-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem3 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c9-0254ac9f" class="is-grid-item is-out1">
-                                          <div class="isbody is-w65">Training Materials</div>
+                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8c9-0254ac9f"
+                                          class="is-grid-item is-out1">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem4 %>
+                                          </div>
                                         </div>
-                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8cc-0254ac9f" class="is-grid-item is-out5">
-                                          <div class="isbody is-w65">International Network Trans-path Planning Experts</div>
+                                        <div id="w-node-_4c532874-fec8-8007-8a57-523ca910b8cc-0254ac9f"
+                                          class="is-grid-item is-out5">
+                                          <div class="isbody is-w65">
+                                            <%= grids[2].gridItem5 %>
+                                          </div>
                                         </div>
                                       </div><img src="images/Ongoing.svg" loading="lazy" width="75" alt="">
                                     </div>
@@ -393,9 +492,13 @@ $(window).resize(function() {
                                       </div>
                                     </div>
                                     <div class="is24 is-inside">
-                                      <div class="isbody is-w65 isincard">The case studies cover problem diagnosis, intervention and analysis, design for research and intervention, and exploring impact and reflection. The institute hopes that by showcasing the benefits of a transdisciplinary approach, they can inspire others to contribute to sustainable water systems.</div>
+                                      <div class="isbody is-w65 isincard">The case studies cover problem diagnosis,
+                                        intervention and analysis, design for research and intervention, and exploring
+                                        impact and reflection. The institute hopes that by showcasing the benefits of a
+                                        transdisciplinary approach, they can inspire others to contribute to sustainable
+                                        water systems.</div>
                                       <div class="is24 is-hori">
-                                        <a href="stream-2.html" class="is-button is-w w-inline-block">
+                                        <a href="/stream-2" class="is-button is-w w-inline-block">
                                           <div class="isbody is-w65">Stream 2</div>
                                         </a>
                                       </div>
@@ -423,73 +526,103 @@ $(window).resize(function() {
         <div class="is-sub">
           <h5>Basins Involved</h5><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
         </div>
-        <div data-w-id="f70c96b5-80bf-b310-3327-65a6d34bec70" style="opacity:0;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="is-basin-sub">
+        <div data-w-id="f70c96b5-80bf-b310-3327-65a6d34bec70"
+          style="opacity:0;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+          class="is-basin-sub">
           <a href="#" class="link-block w-inline-block">
-            <div data-w-id="b0ae9ca2-a5a3-d404-332d-c5cc35c8c25b" style="background-color:rgb(252,251,248)" class="is-basin">
+            <div data-w-id="b0ae9ca2-a5a3-d404-332d-c5cc35c8c25b" style="background-color:rgb(252,251,248)"
+              class="is-basin">
               <div class="isbasin-name">
                 <h2 style="color:rgb(40,49,46)" class="is-regular">Brahmaputra River Basin</h2>
               </div>
-              <div style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none" class="image-wrapper"><img src="images/Image1.png" loading="eager" srcset="images/Image1-p-500.png 500w, images/Image1.png 720w" sizes="26vw" alt=""></div>
+              <div
+                style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
+                class="image-wrapper"><img src="images/Image1.png" loading="eager"
+                  srcset="images/Image1-p-500.png 500w, images/Image1.png 720w" sizes="26vw" alt=""></div>
               <div style="color:rgb(40,49,46)" class="isbody is-in-basin">India</div>
             </div>
           </a>
           <div class="is-hori-line"></div>
           <a href="#" class="link-block w-inline-block">
-            <div data-w-id="940b1c17-90ea-ba0a-d75c-6e5840c84ff1" style="background-color:rgb(252,251,248)" class="is-basin">
+            <div data-w-id="940b1c17-90ea-ba0a-d75c-6e5840c84ff1" style="background-color:rgb(252,251,248)"
+              class="is-basin">
               <div class="isbasin-name">
                 <h2 style="color:rgb(40,49,46)" class="is-regular">Nile River Basin</h2>
               </div>
-              <div style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none" class="image-wrapper"><img src="images/Image2.png" loading="lazy" srcset="images/Image2-p-500.png 500w, images/Image2.png 720w" sizes="26vw" alt=""></div>
+              <div
+                style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
+                class="image-wrapper"><img src="images/Image2.png" loading="lazy"
+                  srcset="images/Image2-p-500.png 500w, images/Image2.png 720w" sizes="26vw" alt=""></div>
               <div style="color:rgb(40,49,46)" class="isbody is-in-basin">Africa</div>
             </div>
           </a>
           <div class="is-hori-line"></div>
           <a href="#" class="link-block w-inline-block">
-            <div data-w-id="ae337397-d118-f5bb-9057-b007d2c2342c" style="background-color:rgb(252,251,248)" class="is-basin">
+            <div data-w-id="ae337397-d118-f5bb-9057-b007d2c2342c" style="background-color:rgb(252,251,248)"
+              class="is-basin">
               <div class="isbasin-name">
                 <h2 style="color:rgb(40,49,46)" class="is-regular">Gezira Irrigation</h2>
               </div>
-              <div style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none" class="image-wrapper"><img src="images/Image3.png" loading="eager" srcset="images/Image3-p-500.png 500w, images/Image3.png 720w" sizes="26vw" alt=""></div>
+              <div
+                style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
+                class="image-wrapper"><img src="images/Image3.png" loading="eager"
+                  srcset="images/Image3-p-500.png 500w, images/Image3.png 720w" sizes="26vw" alt=""></div>
               <div style="color:rgb(40,49,46)" class="isbody is-in-basin">Sudan</div>
             </div>
           </a>
           <div class="is-hori-line"></div>
           <a href="#" class="link-block w-inline-block">
-            <div data-w-id="b033a9e9-f409-ddc0-cd64-6f9deed3338a" style="background-color:rgb(252,251,248)" class="is-basin">
+            <div data-w-id="b033a9e9-f409-ddc0-cd64-6f9deed3338a" style="background-color:rgb(252,251,248)"
+              class="is-basin">
               <div class="isbasin-name">
                 <h2 style="color:rgb(40,49,46)" class="is-regular">Mekong Delta</h2>
               </div>
-              <div style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none" class="image-wrapper"><img src="images/Image4.png" loading="eager" srcset="images/Image4-p-500.png 500w, images/Image4.png 720w" sizes="26vw" alt=""></div>
+              <div
+                style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
+                class="image-wrapper"><img src="images/Image4.png" loading="eager"
+                  srcset="images/Image4-p-500.png 500w, images/Image4.png 720w" sizes="26vw" alt=""></div>
               <div style="color:rgb(40,49,46)" class="isbody is-in-basin"> Vietnam</div>
             </div>
           </a>
           <div class="is-hori-line"></div>
           <a href="#" class="link-block w-inline-block">
-            <div data-w-id="7a38b5a1-3da4-ad0c-29fa-248a4b4e5803" style="background-color:rgb(252,251,248)" class="is-basin">
+            <div data-w-id="7a38b5a1-3da4-ad0c-29fa-248a4b4e5803" style="background-color:rgb(252,251,248)"
+              class="is-basin">
               <div class="isbasin-name">
                 <h2 style="color:rgb(40,49,46)" class="is-regular">Kingwal Wetland &amp; Yala Basin</h2>
               </div>
-              <div style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none" class="image-wrapper"><img src="images/Image5.png" loading="eager" srcset="images/Image5-p-500.png 500w, images/Image5.png 720w" sizes="26vw" alt=""></div>
+              <div
+                style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
+                class="image-wrapper"><img src="images/Image5.png" loading="eager"
+                  srcset="images/Image5-p-500.png 500w, images/Image5.png 720w" sizes="26vw" alt=""></div>
               <div style="color:rgb(40,49,46)" class="isbody is-in-basin">Kenya</div>
             </div>
           </a>
           <div class="is-hori-line"></div>
           <a href="#" class="link-block w-inline-block">
-            <div data-w-id="f1af6618-4f3e-2c10-f6d8-109edd7a1db1" style="background-color:rgb(252,251,248)" class="is-basin">
+            <div data-w-id="f1af6618-4f3e-2c10-f6d8-109edd7a1db1" style="background-color:rgb(252,251,248)"
+              class="is-basin">
               <div class="isbasin-name">
                 <h2 style="color:rgb(40,49,46)" class="is-regular">Xochimilco Wetland</h2>
               </div>
-              <div style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none" class="image-wrapper"><img src="images/Image6.png" loading="eager" srcset="images/Image6-p-500.png 500w, images/Image6.png 720w" sizes="26vw" alt=""></div>
+              <div
+                style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
+                class="image-wrapper"><img src="images/Image6.png" loading="eager"
+                  srcset="images/Image6-p-500.png 500w, images/Image6.png 720w" sizes="26vw" alt=""></div>
               <div style="color:rgb(40,49,46)" class="isbody is-in-basin">Mexico</div>
             </div>
           </a>
           <div class="is-hori-line"></div>
           <a href="#" class="link-block w-inline-block">
-            <div data-w-id="a5b847a9-6442-9cc5-3af9-83bba7de9f53" style="background-color:rgb(252,251,248)" class="is-basin">
+            <div data-w-id="a5b847a9-6442-9cc5-3af9-83bba7de9f53" style="background-color:rgb(252,251,248)"
+              class="is-basin">
               <div class="isbasin-name">
                 <h2 style="color:rgb(40,49,46)" class="is-regular">Wadden Sea</h2>
               </div>
-              <div style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none" class="image-wrapper"><img src="images/IMage7.png" loading="eager" srcset="images/IMage7-p-500.png 500w, images/IMage7.png 720w" sizes="26vw" alt=""></div>
+              <div
+                style="opacity:0;-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
+                class="image-wrapper"><img src="images/IMage7.png" loading="eager"
+                  srcset="images/IMage7-p-500.png 500w, images/IMage7.png 720w" sizes="26vw" alt=""></div>
               <div style="color:rgb(40,49,46)" class="isbody is-in-basin">Netherland</div>
             </div>
           </a>
@@ -504,23 +637,16 @@ $(window).resize(function() {
         <div class="is-sub">
           <h5>Project Partners</h5><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
         </div>
-        <div data-w-id="eb3c25c6-1892-6303-23a7-b2ae845187c2" style="opacity:0;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="is-partner-grid">
-          <a id="w-node-_9fc9ade4-4919-0253-e063-19a761625a3b-0254ac9f" href="#" class="w-inline-block"><img src="images/S01.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S01-p-500.png 500w, images/S01.png 585w" alt=""></a>
-          <a id="w-node-_46a43870-1027-3ca3-2fc0-43993037061c-0254ac9f" href="#" class="w-inline-block"><img src="images/S14.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S14-p-500.png 500w, images/S14.png 585w" alt=""></a>
-          <a id="w-node-_433aee31-d8ae-00e2-89d4-a3c582d03b3e-0254ac9f" href="#" class="w-inline-block"><img src="images/S15.png" loading="lazy" alt=""></a>
-          <a id="w-node-eabb9e41-059c-6bfa-f0ca-ecacb04d0d9e-0254ac9f" href="#" class="w-inline-block"><img src="images/S16.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S16-p-500.png 500w, images/S16.png 585w" alt=""></a>
-          <a id="w-node-_4f492c52-0206-4468-2eb0-c8000b783f03-0254ac9f" href="#" class="w-inline-block"><img src="images/S02.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S02-p-500.png 500w, images/S02.png 585w" alt=""></a>
-          <a id="w-node-_6226cf3f-5e30-b9de-387e-52473248079e-0254ac9f" href="#" class="w-inline-block"><img src="images/S05.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S05-p-500.png 500w, images/S05.png 585w" alt=""></a>
-          <a id="w-node-f18a9d7e-87b8-be8e-c0c5-316f1627d961-0254ac9f" href="#" class="w-inline-block"><img src="images/S08.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S08-p-500.png 500w, images/S08.png 585w" alt=""></a>
-          <a id="w-node-_542af90a-6110-a8a9-7f66-c5a070f2ab61-0254ac9f" href="#" class="w-inline-block"><img src="images/S11.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S11-p-500.png 500w, images/S11.png 585w" alt=""></a>
-          <a id="w-node-_88b59ef2-b27f-d76f-6150-3f14c845a086-0254ac9f" href="#" class="w-inline-block"><img src="images/S03.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S03-p-500.png 500w, images/S03.png 585w" alt=""></a>
-          <a id="w-node-_5c235cfd-9253-fe6c-d0b9-689c8bc4d07c-0254ac9f" href="#" class="w-inline-block"><img src="images/S06.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S06-p-500.png 500w, images/S06.png 585w" alt=""></a>
-          <a id="w-node-_1b377923-e242-06ba-01a6-ca2a5433d323-0254ac9f" href="#" class="w-inline-block"><img src="images/S09.png" loading="lazy" alt=""></a>
-          <a id="w-node-e89f473c-0033-9fa5-cfae-570369fa8153-0254ac9f" href="#" class="w-inline-block"><img src="images/S12.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S12-p-500.png 500w, images/S12.png 585w" alt=""></a>
-          <a id="w-node-a9ae7ccc-1fb8-0583-9727-8d1b7b91011e-0254ac9f" href="#" class="w-inline-block"><img src="images/S04.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S04-p-500.png 500w, images/S04.png 585w" alt=""></a>
-          <a id="w-node-fccac0f8-3f6a-62c9-6682-b830acb5fc28-0254ac9f" href="#" class="w-inline-block"><img src="images/S07.png" loading="lazy" alt=""></a>
-          <a id="w-node-_072cf977-b870-05e5-7606-8780fd1ae329-0254ac9f" href="#" class="w-inline-block"><img src="images/S10.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S10-p-500.png 500w, images/S10.png 585w" alt=""></a>
-          <a id="w-node-eb12c997-8972-b5e0-921f-e036ffb47d5b-0254ac9f" href="#" class="w-inline-block"><img src="images/S13.png" loading="lazy" sizes="(max-width: 767px) 42vw, (max-width: 991px) 21vw, 20vw" srcset="images/S13-p-500.png 500w, images/S13.png 585w" alt=""></a>
+        <div data-w-id="eb3c25c6-1892-6303-23a7-b2ae845187c2"
+          style="opacity:0;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+          class="is-partner-grid">
+          <% partners.forEach(partner=> { %>
+
+            <a id="w-node-_9fc9ade4-4919-0253-e063-19a761625a3b-0254ac9f" href="<%= partner.link %>"
+              class="w-inline-block">
+              <img src="uploads/Project_Partners/<%= partner.photo %>" loading="lazy" alt="">
+            </a>
+            <% }) %>
         </div>
       </div>
     </div>
@@ -537,24 +663,24 @@ $(window).resize(function() {
               <h3 class="is-white">Contact</h3>
               <div class="is-sub">
                 <div class="is16">
-                  <a href="index.html" aria-current="page" class="is-button is-footer-link w-inline-block w--current">
+                  <a href="/" aria-current="page" class="is-button is-footer-link w-inline-block w--current">
                     <div class="isbody is-white">Home</div>
                   </a>
-                  <a href="about.html" class="is-button is-footer-link w-inline-block">
+                  <a href="/about" class="is-button is-footer-link w-inline-block">
                     <div class="isbody is-white">About Us</div>
                   </a>
-                  <a href="publication.html" class="is-button is-footer-link w-inline-block">
+                  <a href="/publication" class="is-button is-footer-link w-inline-block">
                     <div class="isbody is-white">Publications</div>
                   </a>
                 </div>
                 <div class="is16 is-right">
-                  <a href="output.html" class="is-button is-footer-link w-inline-block">
+                  <a href="/output" class="is-button is-footer-link w-inline-block">
                     <div class="isbody is-white">Output</div>
                   </a>
                   <a href="#" class="is-button is-footer-link w-inline-block">
                     <div class="isbody is-white">Stream 1</div>
                   </a>
-                  <a href="stream-2.html" class="is-button is-footer-link w-inline-block">
+                  <a href="/stream-2" class="is-button is-footer-link w-inline-block">
                     <div class="isbody is-white">Stream 2</div>
                   </a>
                 </div>
@@ -565,7 +691,9 @@ $(window).resize(function() {
                 <div class="is-lg-arr is-white"><img src="images/ARROW-UP-W.svg" loading="lazy" alt=""></div>
               </a>
               <a href="#" class="is-button is-footer-email w-inline-block">
-                <h2 class="is-footer-link is-white">email-here@email.com</h2>
+                <h2 class="is-footer-link is-white">
+                  <%= email.email %>
+                </h2>
               </a>
             </div>
           </div>
@@ -575,7 +703,8 @@ $(window).resize(function() {
             <div class="isbody is-white">© 2023 | Water Transformation Pathways Planning</div>
             <div class="is-footer-name">
               <div class="isbody is-white is-name">Designed &amp; Co-Developed by </div>
-              <a href="https://www.linkedin.com/in/r-aryan/" target="_blank" class="is-button is-footer-link w-inline-block">
+              <a href="https://www.linkedin.com/in/r-aryan/" target="_blank"
+                class="is-button is-footer-link w-inline-block">
                 <div class="isbody is-white">Aryan Rathod</div>
               </a>
             </div>
@@ -585,47 +714,50 @@ $(window).resize(function() {
       </div>
     </div>
   </div>
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=646b1c84a7e64d810254ac83" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=646b1c84a7e64d810254ac83"
+    type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/CustomEase.min.js"></script>
   <script>
-// variables
-let customEase =
-  "M0,0,C0,0,0.13,0.34,0.238,0.442,0.305,0.506,0.322,0.514,0.396,0.54,0.478,0.568,0.468,0.56,0.522,0.584,0.572,0.606,0.61,0.719,0.714,0.826,0.798,0.912,1,1,1,1";
-let counter = {
-  value: 0
-};
-let loaderDuration = 10;
-// If not a first time visit in this tab
-if (sessionStorage.getItem("visited") !== null) {
-  loaderDuration = 2;
-  counter = {
-    value: 75
-  };
-}
-sessionStorage.setItem("visited", "true");
-function updateLoaderText() {
-  let progress = Math.round(counter.value);
-  $(".loader_number").text(progress);
-}
-function endLoaderAnimation() {
-  $(".trigger").click();
-}
-let tl = gsap.timeline({
-  onComplete: endLoaderAnimation
-});
-tl.to(counter, {
-  value: 100,
-  onUpdate: updateLoaderText,
-  duration: loaderDuration,
-  ease: CustomEase.create("custom", customEase)
-});
-tl.to(".loader_progress", {
-    width: "100%",
-    duration: loaderDuration,
-    ease: CustomEase.create("custom", customEase)
-}, 0);
-</script>
+    // variables
+    let customEase =
+      "M0,0,C0,0,0.13,0.34,0.238,0.442,0.305,0.506,0.322,0.514,0.396,0.54,0.478,0.568,0.468,0.56,0.522,0.584,0.572,0.606,0.61,0.719,0.714,0.826,0.798,0.912,1,1,1,1";
+    let counter = {
+      value: 0
+    };
+    let loaderDuration = 10;
+    // If not a first time visit in this tab
+    if (sessionStorage.getItem("visited") !== null) {
+      loaderDuration = 2;
+      counter = {
+        value: 75
+      };
+    }
+    sessionStorage.setItem("visited", "true");
+    function updateLoaderText() {
+      let progress = Math.round(counter.value);
+      $(".loader_number").text(progress);
+    }
+    function endLoaderAnimation() {
+      $(".trigger").click();
+    }
+    let tl = gsap.timeline({
+      onComplete: endLoaderAnimation
+    });
+    tl.to(counter, {
+      value: 100,
+      onUpdate: updateLoaderText,
+      duration: loaderDuration,
+      ease: CustomEase.create("custom", customEase)
+    });
+    tl.to(".loader_progress", {
+      width: "100%",
+      duration: loaderDuration,
+      ease: CustomEase.create("custom", customEase)
+    }, 0);
+  </script>
 </body>
+
 </html>
