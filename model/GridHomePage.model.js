@@ -28,6 +28,10 @@ const gridHomePageSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	gridId: {
+		type: Number,
+		default: 100,
+	},
 });
 
 module.exports = mongoose.model("gridHomePage", gridHomePageSchema);

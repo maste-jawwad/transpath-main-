@@ -9,6 +9,9 @@ const mongoSanitize = require("express-mongo-sanitize");
 const methodOverride = require("method-override");
 const flash = require("connect-flash");
 const helmet = require("helmet");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const passportConfig = require("./config/Passport.config");
 
@@ -32,12 +35,18 @@ const {
 	isLoggedIn,
 	forwardAuthenticated,
 } = require("./middleware/Auth.middleware");
-const { createAdmin, deleteUser, clearDB } = require("./helper");
+
+const {
+	createAdmin,
+	deleteUser,
+	clearDB,
+	createGridItems,
+} = require("./helper");
 
 const app = express();
 
 mongoose
-	.connect("mongodb://localhost:27017/brwd")
+	.connect(process.env.MONGO_URI || "mongodb://localhost:27017/brwd")
 	.then(() => {
 		console.log("Database Connected");
 	})
@@ -100,6 +109,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 passportConfig(passport);
 
 // clearDB();
+createGridItems();
 
 app.get("/", async (req, res) => {
 	try {
@@ -109,7 +119,7 @@ app.get("/", async (req, res) => {
 
 		res.render("main/index", {
 			email: email[0],
-			grids,
+			grids: grids.sort((a, b) => a.gridId - b.gridId),
 			partners,
 		});
 	} catch (error) {
@@ -243,6 +253,8 @@ app.use("/admin/phds", MorePoepleRoutes);
 app.use("/admin/publication", PublicationRoutes);
 app.use("/admin/update", UpdateRoutes);
 
-app.listen(3000, () => {
-	console.log(`Server started on http://localhost:3000/`);
+app.listen(process.env.PORT || 3000, () => {
+	console.log(
+		`Server started on http://localhost:${process.env.PORT || 3000}/`
+	);
 });

@@ -45,6 +45,31 @@ const clearDB = async () => {
 		await ProjectPartner.deleteMany({});
 		await Publication.deleteMany({});
 		await Update.deleteMany({});
+
+		console.log("Database Cleared");
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+const createGridItems = async () => {
+	try {
+		for (let i = 0; i < 3; i++) {
+			const grid = new GridHomePage({
+				link: "https://google.com",
+				description: `Grid #${i}`,
+				gridItem1: `Grid #${i} Item 1`,
+				gridItem2: `Grid #${i} Item 2`,
+				gridItem3: `Grid #${i} Item 3`,
+				gridItem4: `Grid #${i} Item 4`,
+				gridItem5: `Grid #${i} Item 5`,
+				gridId: i,
+			});
+
+			await grid.save();
+
+			console.log(`grid item created ${grid}`);
+		}
 	} catch (error) {
 		console.log(error);
 	}
@@ -54,4 +79,5 @@ module.exports = {
 	createAdmin,
 	deleteUser,
 	clearDB,
+	createGridItems,
 };
