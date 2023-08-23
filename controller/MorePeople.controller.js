@@ -28,10 +28,10 @@ const post = async (req, res) => {
 
 		if (!newPerson) {
 			req.flash("error", "Cannot add the person");
-			return res.redirect("/admin/morepeople/add");
+			return res.redirect("/admin/phds/add");
 		}
 
-		res.redirect("/admin/morepeople");
+		res.redirect("/admin/phds");
 	} catch (error) {
 		console.log(error);
 		res.send(error);
@@ -42,7 +42,7 @@ const remove = async (req, res) => {
 	try {
 		const id = req.params.id;
 		const instance = await Schema.findByIdAndDelete(id);
-		res.redirect("/admin/morepeople");
+		res.redirect("/admin/phds");
 	} catch (error) {
 		console.log(error);
 		res.send(error);
