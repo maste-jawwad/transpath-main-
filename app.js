@@ -133,6 +133,18 @@ app.get("/about", async (req, res) => {
 		const people = await People.find({});
 		const morePeople = await MorePeople.find({});
 		const email = await ContactEmail.find({});
+
+		people.sort((a, b) => {
+			var textA = a.name.toUpperCase();
+			var textB = b.name.toUpperCase();
+			return textA < textB ? -1 : textA > textB ? 1 : 0;
+		});
+
+		morePeople.sort((a, b) => {
+			var textA = a.name.toUpperCase();
+			var textB = b.name.toUpperCase();
+			return textA < textB ? -1 : textA > textB ? 1 : 0;
+		});
 		res.render("main/about", {
 			people,
 			morePeople,
