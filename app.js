@@ -109,7 +109,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 passportConfig(passport);
 
 // clearDB();
-createGridItems();
+// createGridItems();
 
 app.get("/", async (req, res) => {
 	try {
