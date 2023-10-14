@@ -32,16 +32,18 @@ const post = async (req, res) => {
 					name: req.body["people[][name]"][i],
 					designation: req.body["people[][designation]"][i],
 					department: req.body["people[][department]"][i],
-					institute: req.body["people[][name]"][i],
+					institute: req.body["people[][institute]"][i],
 				};
+				console.log(instance);
 				people.push(instance);
 			}
 		} else {
+			// console.log(req.body["people[][name]"]);
 			people.push({
-				name: req.body["people[][name]"],
+				name: req.body["people[][institute]"],
 				designation: req.body["people[][designation]"],
 				department: req.body["people[][department]"],
-				institute: req.body["people[][name]"],
+				institute: req.body["people[][institute]"],
 			});
 		}
 		console.log(people);
