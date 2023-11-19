@@ -211,8 +211,25 @@ app.get("/publication", async (req, res) => {
 app.get("/output", async (req, res) => {
 	try {
 		const email = await ContactEmail.find({});
+		const updates = await Update.find({});
+		const months = [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec",
+		];
 		res.render("main/output", {
+			updates,
 			email: email[0],
+			months,
 		});
 	} catch (error) {
 		console.log(error);
