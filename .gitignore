@@ -143,3 +143,6 @@ uploads/Project_Partners/*
 uploads/Update/*
 
 water-tpt.webflow
+
+*DS_Store
+public/.DS_Store

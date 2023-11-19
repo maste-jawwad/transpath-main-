@@ -22,7 +22,8 @@ const add = (req, res) => {
 
 const post = async (req, res) => {
 	try {
-		const { title, category, date, basin, link, description } = req.body;
+		const { title, category, date, basin, link, description, div_id } =
+			req.body;
 		console.log(req.body);
 		let people = [];
 		if (req.body["people[][name]"] instanceof Array) {
@@ -64,6 +65,7 @@ const post = async (req, res) => {
 			people,
 			download,
 			photos,
+			div_id,
 		});
 		console.log(newUpdate);
 		await newUpdate.save();

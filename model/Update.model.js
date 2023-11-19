@@ -41,6 +41,9 @@ const UpdateSchema = new mongoose.Schema({
 		type: String,
 	},
 	people: [PeopleSchema],
+	div_id: {
+		type: String,
+	},
 });
 
 module.exports = mongoose.model("Update", UpdateSchema);

@@ -193,30 +193,30 @@
     <div class="is-full-section is-other-landing">
       <div id="is-landing" class="is-block is-hori-span">
         <div class="is36 is-in-other-landing"><img src="images/DUPC-IHE-logo-RGB-3.png" loading="lazy" sizes="200px"
-            alt="" class="is-logo">
-          <div class="div-block-13">
-            <h1>The people</h1><img src="images/STAR.svg" loading="lazy" alt="" class="is-65 is-title">
-            <h1>who</h1>
-            <h1>made it happen</h1>
-          </div>
-          <div class="isbody">About the team.</div>
+            alt="" class="is-logo" style="width: 300px;"">
+          <div class=" div-block-13">
+          <h1>The people</h1><img src="images/STAR.svg" loading="lazy" alt="" class="is-65 is-title">
+          <h1>who</h1>
+          <h1>made it happen</h1>
         </div>
-        <a href="#is-pi-copi" class="link-block-3 w-inline-block">
-          <div class="is-lg-arr"><img src="images/ARROW-DOWN-B.svg" loading="lazy" alt=""></div>
-        </a>
+        <div class="isbody">About the team.</div>
       </div>
-      <div class="is-hori-line"></div>
-      <div class="is60">
-        <div id="is-pi-copi" class="is-block is-hori-span is-rs">
-          <!-- <h5 class="is-side-header">PI &amp; CO-PI</h5> -->
-          <div class="is36">
-            <h2 class="is-rs-landing-part">Thanks to our experts, we traversed the journey in order to help our partners
-              make the best decisions.
-              <br>
-              <br>
-              Core Team
-            </h2>
-            <!-- <div class="is-partner-grid is-pi-copi">
+      <a href="#is-pi-copi" class="link-block-3 w-inline-block">
+        <div class="is-lg-arr"><img src="images/ARROW-DOWN-B.svg" loading="lazy" alt=""></div>
+      </a>
+    </div>
+    <div class="is-hori-line"></div>
+    <div class="is60">
+      <div id="is-pi-copi" class="is-block is-hori-span is-rs">
+        <!-- <h5 class="is-side-header">PI &amp; CO-PI</h5> -->
+        <div class="is36">
+          <h2 class="is-rs-landing-part">Thanks to our experts, we traversed the journey in order to help our partners
+            make the best decisions.
+            <br>
+            <br>
+            Core Team
+          </h2>
+          <!-- <div class="is-partner-grid is-pi-copi">
               <% people.forEach(person=> { %>
                 <% if(person.type==="pi" || person.type==="copi" ) { %>
 
@@ -289,169 +289,169 @@
                   <% } %>
                     <% }) %>
             </div> -->
-          </div>
         </div>
       </div>
-      <div class="is60">
-        <div class="is-sub">
-          <h5>Postdocs and PhDs</h5><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
-        </div>
-        <div class="is-partner-grid">
-          <% people.forEach(person=> { %>
-            <% if(person.type==='phd' ){ %>
+    </div>
+    <div class="is60">
+      <div class="is-sub">
+        <h5>Postdocs and PhDs</h5><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
+      </div>
+      <div class="is-partner-grid">
+        <% people.forEach(person=> { %>
+          <% if(person.type==='phd' ){ %>
 
-              <div id="w-node-a3cd525a-827a-5665-e054-4b7eeaebaad6-03840944"
-                data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaad6" class="is-about-wrapper">
-                <div class="is24 is-ab-card">
-                  <div class="image-wrapper is-in-about is-out"><img src="uploads/People/<%= person.photo %>"
-                      loading="lazy" alt=""></div>
-                  <div class="is4">
-                    <h4>
-                      <%= person.name %>
-                    </h4>
-                    <div class="isbody isg50">
-                      <%= person.designation %>
-                    </div>
+            <div id="w-node-a3cd525a-827a-5665-e054-4b7eeaebaad6-03840944"
+              data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaad6" class="is-about-wrapper">
+              <div class="is24 is-ab-card">
+                <div class="image-wrapper is-in-about is-out"><img src="uploads/People/<%= person.photo %>"
+                    loading="lazy" alt=""></div>
+                <div class="is4">
+                  <h4>
+                    <%= person.name %>
+                  </h4>
+                  <div class="isbody isg50">
+                    <%= person.designation %>
                   </div>
                 </div>
-                <div style="display:none;opacity:0" class="is-deets-wrapper">
-                  <div
-                    style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                    class="isdeets-overlay">
-                    <div class="is-full-section isdeets">
-                      <div style="opacity:0" class="is60 is-hori">
-                        <div class="image-wrapper is-deet is-in"><img src="uploads/People/<%= person.photo %>"
-                            loading="lazy" alt="" class="image-2"></div>
-                        <div class="is24 is-inside-section">
-                          <div class="is48">
-                            <div class="is-sub">
-                              <h2 class="is-deets-header">
-                                <%= person.name %>
-                              </h2>
-                              <a data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaaea" href="#"
-                                class="link-block-3 is-bt-close w-inline-block">
-                                <div class="is-lg-arr is-med"><img src="images/CROSS.svg" loading="lazy" width="24"
-                                    alt="">
-                                </div>
-                              </a>
-                            </div>
-                            <div class="is16">
-                              <div class="isbody">
-                                <%= person.designation %> | <%= person.department %>
+              </div>
+              <div style="display:none;opacity:0" class="is-deets-wrapper">
+                <div
+                  style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                  class="isdeets-overlay">
+                  <div class="is-full-section isdeets">
+                    <div style="opacity:0" class="is60 is-hori">
+                      <div class="image-wrapper is-deet is-in"><img src="uploads/People/<%= person.photo %>"
+                          loading="lazy" alt="" class="image-2"></div>
+                      <div class="is24 is-inside-section">
+                        <div class="is48">
+                          <div class="is-sub">
+                            <h2 class="is-deets-header">
+                              <%= person.name %>
+                            </h2>
+                            <a data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaaea" href="#"
+                              class="link-block-3 is-bt-close w-inline-block">
+                              <div class="is-lg-arr is-med"><img src="images/CROSS.svg" loading="lazy" width="24"
+                                  alt="">
                               </div>
-                              <div class="isbody isg50">
-                                <%= person.institute %>
-                              </div>
+                            </a>
+                          </div>
+                          <div class="is16">
+                            <div class="isbody">
+                              <%= person.designation %> | <%= person.department %>
+                            </div>
+                            <div class="isbody isg50">
+                              <%= person.institute %>
                             </div>
                           </div>
-                          <div class="is-hori-line"></div>
-                          <div class="isbody">
-                            <%= person.description %>
-                          </div>
-                          <div class="is24 is-hori">
-                            <%if(person.linkedin) { %>
-                              <a href="<%= person.linkedin %>" class="is-button w-inline-block">
-                                <div class="isbody">LinkedIn</div>
-                              </a>
-                              <% } %>
-                                <img src="images/STAR.svg" loading="lazy" width="24" alt="" class="is-w65">
-                                <% if(person.twitter) { %>
-                                  <a href="<%= person.twitter %>" class="is-button w-inline-block">
-                                    <div class="isbody">Twitter</div>
-                                  </a>
-                                  <% } %>
-                          </div>
+                        </div>
+                        <div class="is-hori-line"></div>
+                        <div class="isbody">
+                          <%= person.description %>
+                        </div>
+                        <div class="is24 is-hori">
+                          <%if(person.linkedin) { %>
+                            <a href="<%= person.linkedin %>" class="is-button w-inline-block">
+                              <div class="isbody">LinkedIn</div>
+                            </a>
+                            <% } %>
+                              <img src="images/STAR.svg" loading="lazy" width="24" alt="" class="is-w65">
+                              <% if(person.twitter) { %>
+                                <a href="<%= person.twitter %>" class="is-button w-inline-block">
+                                  <div class="isbody">Twitter</div>
+                                </a>
+                                <% } %>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <% } %>
-                <% }) %>
-        </div>
+            </div>
+            <% } %>
+              <% }) %>
       </div>
-      <div class="is60">
-        <div class="is-sub">
-          <h5>Team Members</h5><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
-        </div>
-        <div class="is-partner-grid">
-          <% people.forEach(person=> { %>
-            <% if(person.type==='core' ){ %>
+    </div>
+    <div class="is60">
+      <div class="is-sub">
+        <h5>Team Members</h5><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
+      </div>
+      <div class="is-partner-grid">
+        <% people.forEach(person=> { %>
+          <% if(person.type==='core' ){ %>
 
-              <div id="w-node-a3cd525a-827a-5665-e054-4b7eeaebaad6-03840944"
-                data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaad6" class="is-about-wrapper">
-                <div class="is24 is-ab-card">
-                  <div class="image-wrapper is-in-about is-out"><img src="uploads/People/<%= person.photo %>"
-                      loading="lazy" alt=""></div>
-                  <div class="is4">
-                    <h4>
-                      <%= person.name %>
-                    </h4>
-                    <div class="isbody isg50">
-                      <%= person.designation %>
-                    </div>
+            <div id="w-node-a3cd525a-827a-5665-e054-4b7eeaebaad6-03840944"
+              data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaad6" class="is-about-wrapper">
+              <div class="is24 is-ab-card">
+                <div class="image-wrapper is-in-about is-out"><img src="uploads/People/<%= person.photo %>"
+                    loading="lazy" alt=""></div>
+                <div class="is4">
+                  <h4>
+                    <%= person.name %>
+                  </h4>
+                  <div class="isbody isg50">
+                    <%= person.designation %>
                   </div>
                 </div>
-                <div style="display:none;opacity:0" class="is-deets-wrapper">
-                  <div
-                    style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                    class="isdeets-overlay">
-                    <div class="is-full-section isdeets">
-                      <div style="opacity:0" class="is60 is-hori">
-                        <div class="image-wrapper is-deet is-in"><img src="uploads/People/<%= person.photo %>"
-                            loading="lazy" alt="" class="image-2"></div>
-                        <div class="is24 is-inside-section">
-                          <div class="is48">
-                            <div class="is-sub">
-                              <h2 class="is-deets-header">
-                                <%= person.name %>
-                              </h2>
-                              <a data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaaea" href="#"
-                                class="link-block-3 is-bt-close w-inline-block">
-                                <div class="is-lg-arr is-med"><img src="images/CROSS.svg" loading="lazy" width="24"
-                                    alt="">
-                                </div>
-                              </a>
-                            </div>
-                            <div class="is16">
-                              <div class="isbody">
-                                <%= person.designation %> | <%= person.department %>
+              </div>
+              <div style="display:none;opacity:0" class="is-deets-wrapper">
+                <div
+                  style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                  class="isdeets-overlay">
+                  <div class="is-full-section isdeets">
+                    <div style="opacity:0" class="is60 is-hori">
+                      <div class="image-wrapper is-deet is-in"><img src="uploads/People/<%= person.photo %>"
+                          loading="lazy" alt="" class="image-2"></div>
+                      <div class="is24 is-inside-section">
+                        <div class="is48">
+                          <div class="is-sub">
+                            <h2 class="is-deets-header">
+                              <%= person.name %>
+                            </h2>
+                            <a data-w-id="a3cd525a-827a-5665-e054-4b7eeaebaaea" href="#"
+                              class="link-block-3 is-bt-close w-inline-block">
+                              <div class="is-lg-arr is-med"><img src="images/CROSS.svg" loading="lazy" width="24"
+                                  alt="">
                               </div>
-                              <div class="isbody isg50">
-                                <%= person.institute %>
-                              </div>
+                            </a>
+                          </div>
+                          <div class="is16">
+                            <div class="isbody">
+                              <%= person.designation %> | <%= person.department %>
+                            </div>
+                            <div class="isbody isg50">
+                              <%= person.institute %>
                             </div>
                           </div>
-                          <div class="is-hori-line"></div>
-                          <div class="isbody">
-                            <%= person.description %>
-                          </div>
-                          <div class="is24 is-hori">
-                            <%if(person.linkedin) { %>
-                              <a href="<%= person.linkedin %>" class="is-button w-inline-block">
-                                <div class="isbody">LinkedIn</div>
-                              </a>
-                              <% } %>
-                                <img src="images/STAR.svg" loading="lazy" width="24" alt="" class="is-w65">
-                                <% if(person.twitter) { %>
-                                  <a href="<%= person.twitter %>" class="is-button w-inline-block">
-                                    <div class="isbody">Twitter</div>
-                                  </a>
-                                  <% } %>
-                          </div>
+                        </div>
+                        <div class="is-hori-line"></div>
+                        <div class="isbody">
+                          <%= person.description %>
+                        </div>
+                        <div class="is24 is-hori">
+                          <%if(person.linkedin) { %>
+                            <a href="<%= person.linkedin %>" class="is-button w-inline-block">
+                              <div class="isbody">LinkedIn</div>
+                            </a>
+                            <% } %>
+                              <img src="images/STAR.svg" loading="lazy" width="24" alt="" class="is-w65">
+                              <% if(person.twitter) { %>
+                                <a href="<%= person.twitter %>" class="is-button w-inline-block">
+                                  <div class="isbody">Twitter</div>
+                                </a>
+                                <% } %>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <% } %>
-                <% }) %>
-        </div>
+            </div>
+            <% } %>
+              <% }) %>
       </div>
+    </div>
 
-      <!-- <div class="is60">
+    <!-- <div class="is60">
         <div class="is-sub">
           <h5>PhDs &amp; Research Scholars</h5><img src="images/STAR.svg" loading="lazy" alt="" class="is-65">
         </div>
@@ -477,7 +477,7 @@
             <% }) %>
         </div>
       </div> -->
-    </div>
+  </div>
   </div>
   <div data-w-id="f09766d3-8b87-a003-b04b-53de2fea7b54" class="is-parent-container is-footer">
     <div class="div-block-10">
