@@ -158,7 +158,10 @@ app.get("/about", async (req, res) => {
 
 app.get("/stream-1", async (req, res) => {
 	try {
-		res.send("Coming Soon");
+		const email = await ContactEmail.find({});
+		res.render("main/stream-1", {
+			email: email[0],
+		});
 	} catch (error) {
 		console.log(error);
 		res.status(500).send(error);
