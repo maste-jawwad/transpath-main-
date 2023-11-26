@@ -238,11 +238,12 @@
       </div> -->
     </div>
   </div>
+
   <div class="is-parent-container is-g">
     <div class="is-full-section">
       <div class="is48">
         <!-- <div class="is-sub">
-          <h5 class="is-w65">Our Project Output</h5><img src="images/STAR-W.svg" loading="lazy" alt="">
+          <h5 class="is-w65">Our Activities in Stream 2</h5><img src="images/STAR-W.svg" loading="lazy" alt="">
         </div> -->
         <div class="is24 is-accordian">
           <div class="is-sub">
@@ -256,11 +257,12 @@
             <div class="is-partner-grid is-more is-in-acc">
               <% updates.forEach(update=> { %>
                 <% if(update.category=="Blog" ) { %>
-                  <div data-w-id="126d5845-1a80-2046-8b56-0c85fee8d9dc" class="is-about-wrapper">
+                  <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
                     <div class="is24 is-ab-card">
                       <div class="image-wrapper is-in-about is-out"><img
                           src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
-                          loading="lazy" alt=""></div>
+                          loading="lazy" alt="">
+                      </div>
                       <div class="is4">
                         <h4 class="is-white">
                           <%= update.title %>
@@ -276,7 +278,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div style="display:none;opacity:0" class="is-deets-wrapper">
+                    <div style="display:none;opacity:0" class="is-deets-wrapper">
                       <div
                         style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                         class="isdeets-overlay">
@@ -284,7 +286,7 @@
                           <div class="is60">
                             <div class="is-set">
                               <div class="is-close-sticky">
-                                <a data-w-id="126d5845-1a80-2046-8b56-0c85fee8d9f0" href="#"
+                                <a data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa07d" href="#"
                                   class="link-block-3 is-bt-close w-inline-block">
                                   <div class="is-lg-arr is-med is-diff"><img src="images/CROSS.svg" loading="lazy"
                                       width="24" alt=""></div>
@@ -310,7 +312,7 @@
                                 <div class="is24 is-hori">
                                   <a href="<%= update.link %>" class="is-button w-inline-block">
                                     <div class="isbody">View Link</div>
-                                  </a><img src="images/STAR.svg" loading="lazy" width="24" alt="" class="is-w65">
+                                  </a><img src="images/STAR.svg" loading="lazy" alt="" width="24" class="is-w65">
                                   <a href="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.download %>"
                                     class="is-button w-inline-block">
                                     <div class="isbody">Download</div>
@@ -324,7 +326,6 @@
                               data-duration="500" data-infinite="true">
                               <div class="mask w-slider-mask">
                                 <% update.photos.forEach(photo=> { %>
-
                                   <div class="w-slide">
                                     <div class="is-slider-img"><img
                                         src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>"
@@ -334,7 +335,8 @@
                               </div>
                               <div class="left-arrow w-slider-arrow-left">
                                 <div class="is-lg-arr is-med is-pointer"><img src="images/LEFT-ARR.svg" loading="lazy"
-                                    alt=""></div>
+                                    alt="">
+                                </div>
                               </div>
                               <div class="right-arrow w-slider-arrow-right">
                                 <div class="is-lg-arr is-med is-pointer"><img src="images/RIGHT-ARR.svg" loading="lazy"
@@ -351,7 +353,6 @@
                               </div>
                               <div class="is-partner-grid is-more">
                                 <% update.people.forEach(person=> { %>
-
                                   <div class="is24">
                                     <div class="is12 is-vert">
                                       <div class="is-sub">
@@ -374,7 +375,7 @@
                           </div>
                         </div>
                       </div>
-                    </div> -->
+                    </div>
                   </div>
                   <% } %>
                     <% }) %>
@@ -387,19 +388,20 @@
             <h3 class="is-white">Webinar</h3>
             <div class="div-block-12">
               <div class="is-sm-arr is-w"><img src="images/ARROW-UP-W.svg" loading="lazy" width="12" alt=""
-                  class="is-180"></div>
+                  class="is-180">
+              </div>
             </div>
           </div>
           <div class="is60">
             <div class="is-partner-grid is-more is-in-acc">
               <% updates.forEach(update=> { %>
                 <% if(update.category=="Webinar" ) { %>
-                  <div data-w-id="126d5845-1a80-2046-8b56-0c85fee8d9dc" class="is-about-wrapper"
-                    id="<%= update.div_id %>">
+                  <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
                     <div class="is24 is-ab-card">
                       <div class="image-wrapper is-in-about is-out"><img
                           src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
-                          loading="lazy" alt=""></div>
+                          loading="lazy" alt="">
+                      </div>
                       <div class="is4">
                         <h4 class="is-white">
                           <%= update.title %>
@@ -415,7 +417,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div style="display:none;opacity:0" class="is-deets-wrapper">
+                    <div style="display:none;opacity:0" class="is-deets-wrapper">
                       <div
                         style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                         class="isdeets-overlay">
@@ -423,11 +425,10 @@
                           <div class="is60">
                             <div class="is-set">
                               <div class="is-close-sticky">
-                                <a data-w-id="126d5845-1a80-2046-8b56-0c85fee8d9f0" href="#"
+                                <a data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa07d" href="#"
                                   class="link-block-3 is-bt-close w-inline-block">
                                   <div class="is-lg-arr is-med is-diff"><img src="images/CROSS.svg" loading="lazy"
-                                      width="24" alt="">
-                                  </div>
+                                      width="24" alt=""></div>
                                 </a>
                               </div>
                             </div>
@@ -450,7 +451,7 @@
                                 <div class="is24 is-hori">
                                   <a href="<%= update.link %>" class="is-button w-inline-block">
                                     <div class="isbody">View Link</div>
-                                  </a><img src="images/STAR.svg" loading="lazy" width="24" alt="" class="is-w65">
+                                  </a><img src="images/STAR.svg" loading="lazy" alt="" width="24" class="is-w65">
                                   <a href="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.download %>"
                                     class="is-button w-inline-block">
                                     <div class="isbody">Download</div>
@@ -464,7 +465,6 @@
                               data-duration="500" data-infinite="true">
                               <div class="mask w-slider-mask">
                                 <% update.photos.forEach(photo=> { %>
-
                                   <div class="w-slide">
                                     <div class="is-slider-img"><img
                                         src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>"
@@ -474,11 +474,13 @@
                               </div>
                               <div class="left-arrow w-slider-arrow-left">
                                 <div class="is-lg-arr is-med is-pointer"><img src="images/LEFT-ARR.svg" loading="lazy"
-                                    alt=""></div>
+                                    alt="">
+                                </div>
                               </div>
                               <div class="right-arrow w-slider-arrow-right">
                                 <div class="is-lg-arr is-med is-pointer"><img src="images/RIGHT-ARR.svg" loading="lazy"
-                                    alt=""></div>
+                                    alt="">
+                                </div>
                               </div>
                               <div class="slide-nav w-slider-nav w-round w-num"></div>
                             </div>
@@ -491,7 +493,6 @@
                               </div>
                               <div class="is-partner-grid is-more">
                                 <% update.people.forEach(person=> { %>
-
                                   <div class="is24">
                                     <div class="is12 is-vert">
                                       <div class="is-sub">
@@ -514,7 +515,7 @@
                           </div>
                         </div>
                       </div>
-                    </div> -->
+                    </div>
                   </div>
                   <% } %>
                     <% }) %>
@@ -527,26 +528,24 @@
             <h3 class="is-white">Podcasts</h3>
             <div class="div-block-12">
               <div class="is-sm-arr is-w"><img src="images/ARROW-UP-W.svg" loading="lazy" width="12" alt=""
-                  class="is-180"></div>
+                  class="is-180">
+              </div>
             </div>
           </div>
           <div class="is60">
             <div class="is-partner-grid is-more is-in-acc">
               <% updates.forEach(update=> { %>
                 <% if(update.category=="Podcast" ) { %>
-                  <div data-w-id="126d5845-1a80-2046-8b56-0c85fee8d9dc" class="is-about-wrapper"
-                    id="<%= update.div_id %>">
+                  <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
                     <div class="is24 is-ab-card">
                       <div class="image-wrapper is-in-about is-out"><img
                           src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
-                          loading="lazy" alt=""></div>
+                          loading="lazy" alt="">
+                      </div>
                       <div class="is4">
-                        <a href="<%= update.link %>">
-
-                          <h4 class="is-white">
-                            <%= update.title %>
-                          </h4>
-                        </a>
+                        <h4 class="is-white">
+                          <%= update.title %>
+                        </h4>
                         <div class="is24 is-hori">
                           <div class="isbody is-white">
                             <%= months[update.date.getMonth()] %> &nbsp;
@@ -558,7 +557,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div style="display:none;opacity:0" class="is-deets-wrapper">
+                    <div style="display:none;opacity:0" class="is-deets-wrapper">
                       <div
                         style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                         class="isdeets-overlay">
@@ -566,11 +565,10 @@
                           <div class="is60">
                             <div class="is-set">
                               <div class="is-close-sticky">
-                                <a data-w-id="126d5845-1a80-2046-8b56-0c85fee8d9f0" href="#"
+                                <a data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa07d" href="#"
                                   class="link-block-3 is-bt-close w-inline-block">
                                   <div class="is-lg-arr is-med is-diff"><img src="images/CROSS.svg" loading="lazy"
-                                      width="24" alt="">
-                                  </div>
+                                      width="24" alt=""></div>
                                 </a>
                               </div>
                             </div>
@@ -593,7 +591,7 @@
                                 <div class="is24 is-hori">
                                   <a href="<%= update.link %>" class="is-button w-inline-block">
                                     <div class="isbody">View Link</div>
-                                  </a><img src="images/STAR.svg" loading="lazy" width="24" alt="" class="is-w65">
+                                  </a><img src="images/STAR.svg" loading="lazy" alt="" width="24" class="is-w65">
                                   <a href="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.download %>"
                                     class="is-button w-inline-block">
                                     <div class="isbody">Download</div>
@@ -607,7 +605,6 @@
                               data-duration="500" data-infinite="true">
                               <div class="mask w-slider-mask">
                                 <% update.photos.forEach(photo=> { %>
-
                                   <div class="w-slide">
                                     <div class="is-slider-img"><img
                                         src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>"
@@ -617,11 +614,13 @@
                               </div>
                               <div class="left-arrow w-slider-arrow-left">
                                 <div class="is-lg-arr is-med is-pointer"><img src="images/LEFT-ARR.svg" loading="lazy"
-                                    alt=""></div>
+                                    alt="">
+                                </div>
                               </div>
                               <div class="right-arrow w-slider-arrow-right">
                                 <div class="is-lg-arr is-med is-pointer"><img src="images/RIGHT-ARR.svg" loading="lazy"
-                                    alt=""></div>
+                                    alt="">
+                                </div>
                               </div>
                               <div class="slide-nav w-slider-nav w-round w-num"></div>
                             </div>
@@ -634,7 +633,6 @@
                               </div>
                               <div class="is-partner-grid is-more">
                                 <% update.people.forEach(person=> { %>
-
                                   <div class="is24">
                                     <div class="is12 is-vert">
                                       <div class="is-sub">
@@ -657,11 +655,10 @@
                           </div>
                         </div>
                       </div>
-                    </div> -->
+                    </div>
                   </div>
                   <% } %>
                     <% }) %>
-
             </div>
           </div>
           <div class="is-hori-line"></div>
