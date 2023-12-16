@@ -22,6 +22,7 @@ const People = require("./model/People.model");
 const ProjectPartner = require("./model/ProjectPartner.model");
 const Publication = require("./model/Publication.model");
 const Update = require("./model/Update.model");
+const Stream1 = require("./model/Stream1.model");
 
 const GridHomePageRoutes = require("./routes/admin/GridHomePage.route");
 const ContactEmailRoutes = require("./routes/admin/ContactEmail.route");
@@ -30,6 +31,7 @@ const PeopleRoutes = require("./routes/admin/People.route");
 const MorePoepleRoutes = require("./routes/admin/MorePeople.route");
 const PublicationRoutes = require("./routes/admin/Publication.route");
 const UpdateRoutes = require("./routes/admin/Update.route");
+const Stream1Routes = require("./routes/admin/Stream1.route");
 
 const {
 	isLoggedIn,
@@ -284,6 +286,7 @@ app.use("/admin/people", PeopleRoutes);
 app.use("/admin/phds", MorePoepleRoutes);
 app.use("/admin/publication", PublicationRoutes);
 app.use("/admin/update", UpdateRoutes);
+app.use("/admin/stream1", Stream1Routes);
 
 app.listen(process.env.PORT || 3000, () => {
 	console.log(

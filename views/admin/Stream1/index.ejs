@@ -1,0 +1,61 @@
+<%- include("../partials/header.ejs") %>
+    <h1 class="text-3xl text-black pb-6">Stream 1 Updates</h1>
+    <div class="mt-6">
+        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/admin/stream1/add">Add
+            Stream 1 Updates</a>
+    </div>
+    <div class="w-full mt-6 overflow-auto">
+        <div class="bg-white">
+            <table class="min-w-full leading-normal">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Photo
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Basin
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Is Blob
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Link
+                        </th>
+                        <th class="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                            Delete
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% updates.forEach((update, i)=> { %>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 w-10 h-10">
+                                        <img src="/uploads/Stream1/<%=update.photo%>" alt="unable to load the image"
+                                            class="w-full h-full rounded-full">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <%= update.basin %>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <%= update.isBlob ? "Yes" : "No" %>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <a class="hover:text-blue-500" href="<%= update.link %>">Link</a>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <form class="mx-2" action="/admin/stream1/<%=update._id%>?_method=DELETE" method="POST">
+                                    <button class="hover:text-red-500">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <%- include("../partials/footer.ejs") %>

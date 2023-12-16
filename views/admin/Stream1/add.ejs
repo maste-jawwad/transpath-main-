@@ -1,0 +1,50 @@
+<%- include("../partials/header.ejs") %>
+    <h1 class="text-3xl text-black pb-6">Add Stream 1 Update</h1>
+    <div class="flex flex-wrap justify-center">
+        <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
+            <p class="text-xl pb-6 flex items-center">
+                <i class="fas fa-list mr-3"></i> Add Stream 1 Update
+            </p>
+            <div class="leading-loose">
+                <form action="/admin/stream1" class="p-10 bg-white rounded shadow-xl" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="mt-2">
+                        <label for="link" class="block text-sm text-gray-600">Link</label>
+                        <input type="text" class="w-fill px-5 py-4 text-gray-700 bg-gray-200 rounded" id="link"
+                            name="link" placeholder="Link" required>
+                    </div>
+                    <div class="mt-2">
+                        <label class="block text-sm text-gray-600" for="photo">Image</label>
+                        <input class="w-full px-5 py-4 text-gray-700 bg-gray-200 rounded" type="file" id="photo"
+                            name="photo" placeholder="image file(png/jpeg)" required />
+                    </div>
+                    <div class="mt-2">
+                        <label for="basin" class="block text-sm text-gray-600">Basin</label>
+                        <select class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="basin" name="basin">
+                            <option value="Brahmaputra River Basin" selected>Brahmaputra River Basin</option>
+                            <option value="Nile River Basin">Nile River Basin</option>
+                            <option value="Gezira Irrigation">Gezira Irrigation</option>
+                            <option value="Mekong Delta">Mekong Delta</option>
+                            <option value="Yala and Kingwal Wetlands">Yala and Kingwal Wetlands</option>
+                            <option value="Xochimilco Wetland">Xochimilco Wetland</option>
+                            <option value="Wadden Sea">Wadden Sea</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="blob" class="block text-sm text-gray-600">Is Blob</label>
+                        <input type="checkbox" name="isBlob" id="blob">
+                    </div>
+
+                    <div class="mt-6">
+                        <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
+                            type="submit">Add</button>
+                    </div>
+                    <div class="mt-2">
+                        <a class="hover:text-blue-500" href="/admin/stream1">Go Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include("../partials/footer.ejs") %>
