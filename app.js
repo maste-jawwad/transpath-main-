@@ -161,8 +161,16 @@ app.get("/about", async (req, res) => {
 app.get("/stream-1", async (req, res) => {
 	try {
 		const email = await ContactEmail.find({});
+		const people = await People.find({
+			type: {
+				$in: ["brah", "nile", "gezi", "meko", "yala", "xoch", "wadd"],
+			},
+		});
+		const stream1 = await Stream1.find({});
 		res.render("main/stream-1", {
 			email: email[0],
+			people,
+			updates: stream1,
 		});
 	} catch (error) {
 		console.log(error);
