@@ -366,6 +366,11 @@ a {
   position: fixed;
 }
 
+.is-menu-container.is-blog {
+  z-index: 10001;
+  display: none;
+}
+
 .is-pill-cont {
   width: 100px;
   position: relative;
@@ -1296,10 +1301,14 @@ a {
   right: 0%;
 }
 
+.is-deets-wrapper.is-blog {
+  display: block;
+}
+
 .isdeets-overlay {
   z-index: 1001;
   width: 100vw;
-  height: 90vh;
+  height: 96vh;
   background-color: var(--w);
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;

@@ -268,13 +268,16 @@ app.get("/blogs/:id", async (req, res) => {
 			"Dec",
 		];
 		if (blog.category != "Blog") {
-			return res.send("<h1>404 error, Not found</h1>");
+			return res.redirect("/output");
 		}
-		res.render("main/blog", {
+		return res.render("main/blogs", {
 			update: blog,
 			months,
 		});
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.get("/login", forwardAuthenticated, (req, res) => {
