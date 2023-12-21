@@ -257,28 +257,29 @@
             <div class="is-partner-grid is-more is-in-acc">
               <% updates.forEach(update=> { %>
                 <% if(update.category=="Blog" ) { %>
-                  <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
-                    <div class="is24 is-ab-card">
-                      <div class="image-wrapper is-in-about is-out"><img
-                          src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
-                          loading="lazy" alt="">
-                      </div>
-                      <div class="is4">
-                        <h4 class="is-white">
-                          <%= update.title %>
-                        </h4>
-                        <div class="is24 is-hori">
-                          <div class="isbody is-white">
-                            <%= months[update.date.getMonth()] %> &nbsp;
-                              <%= update.date.getFullYear() %>
-                          </div>
-                          <div class="isbody is-w65">
-                            <%= update.basin %>
+                  <a href="/blogs/<%= update._id %>">
+                    <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
+                      <div class="is24 is-ab-card">
+                        <div class="image-wrapper is-in-about is-out"><img
+                            src="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
+                            loading="lazy" alt="">
+                        </div>
+                        <div class="is4">
+                          <h4 class="is-white">
+                            <%= update.title %>
+                          </h4>
+                          <div class="is24 is-hori">
+                            <div class="isbody is-white">
+                              <%= months[update.date.getMonth()] %> &nbsp;
+                                <%= update.date.getFullYear() %>
+                            </div>
+                            <div class="isbody is-w65">
+                              <%= update.basin %>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div style="display:none;opacity:0" class="is-deets-wrapper">
+                      <!-- <div style="display:none;opacity:0" class="is-deets-wrapper">
                       <div
                         style="display:none;-webkit-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 48px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
                         class="isdeets-overlay">
@@ -345,7 +346,7 @@
                               <div class="slide-nav w-slider-nav w-round w-num"></div>
                             </div>
                             <div class="isbody is-updates">
-                              <%= update.description %>
+                              <%- update.description %>
                             </div>
                             <div class="is24 is-updates">
                               <div class="is-sub">
@@ -375,8 +376,9 @@
                           </div>
                         </div>
                       </div>
+                    </div> -->
                     </div>
-                  </div>
+                  </a>
                   <% } %>
                     <% }) %>
             </div>
@@ -485,7 +487,7 @@
                               <div class="slide-nav w-slider-nav w-round w-num"></div>
                             </div>
                             <div class="isbody is-updates">
-                              <%= update.description %>
+                              <%- update.description %>
                             </div>
                             <div class="is24 is-updates">
                               <div class="is-sub">

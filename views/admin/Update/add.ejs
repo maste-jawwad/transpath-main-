@@ -15,7 +15,7 @@
             </div>
             <div class="leading-loose">
                 <form class="p-10 bg-white rounded shadow-xl" action="/admin/update" method="POST"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" id="blog-form">
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="title">Title</label>
                         <input class="w-full px-5 py-4 text-gray-700 bg-gray-200 rounded" id="title" type="text"
@@ -23,8 +23,14 @@
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="description">Description</label>
-                        <textarea class="w-full px-5 py-4 text-gray-700 bg-gray-200 rounded" rows="4" id="description"
-                            name="description" placeholder="Description"></textarea>
+                        <!-- <textarea class="w-full px-5 py-4 text-gray-700 bg-gray-200 rounded richtexteditor" rows="4"
+                            id="description richtexteditor" name="description" placeholder="Description"></textarea> -->
+                        <input type="hidden" name="description" placeholder="description" id="description">
+                        <div id="editor">
+                            <p>
+                                Make changes in the editor block
+                            </p>
+                        </div>
                     </div>
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="date">Date</label>

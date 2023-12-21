@@ -250,6 +250,33 @@ app.get("/output", async (req, res) => {
 	}
 });
 
+app.get("/blogs/:id", async (req, res) => {
+	try {
+		const blog = await Update.findById(req.params.id);
+		const months = [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec",
+		];
+		if (blog.category != "Blog") {
+			return res.send("<h1>404 error, Not found</h1>");
+		}
+		res.render("main/blog", {
+			update: blog,
+			months,
+		});
+	} catch (error) {}
+});
+
 app.get("/login", forwardAuthenticated, (req, res) => {
 	res.render("login");
 });
