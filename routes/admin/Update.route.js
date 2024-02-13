@@ -37,7 +37,7 @@ router.post(
 	isLoggedIn,
 	uploads.fields([
 		{ name: "download", maxCount: 1 },
-		{ name: "photos", maxCount: 5 },
+		{ name: "photos", maxCount: 10 },
 	]),
 	Controller.post
 );
