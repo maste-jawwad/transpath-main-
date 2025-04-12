@@ -180,7 +180,7 @@ app.get("/stream-1", async (req, res) => {
 
 app.get("/stream-2", async (req, res) => {
 	try {
-		const updates = await Update.find({});
+		const updates = await Update.find({}).sort({ date: -1 });
 		const email = await ContactEmail.find({});
 		const months = [
 			"Jan",
@@ -224,7 +224,7 @@ app.get("/publication", async (req, res) => {
 app.get("/output", async (req, res) => {
 	try {
 		const email = await ContactEmail.find({});
-		const updates = await Update.find({});
+		const updates = await Update.find({}).sort({ date: -1 });
 		const months = [
 			"Jan",
 			"Feb",
