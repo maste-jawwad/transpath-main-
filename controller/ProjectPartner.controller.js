@@ -9,7 +9,6 @@ const viewProjectPartner = async (req, res) => {
 			projectPartners,
 		});
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
@@ -22,9 +21,6 @@ const postProjectPartner = async (req, res) => {
 	try {
 		const { name, link } = req.body;
 		const photo = req.file ? req.file.filename : null;
-
-		// console.log(req.body);
-		// console.log(req.file);
 		const newProjectPartner = await new ProjectPartner({
 			name,
 			photo,
@@ -37,7 +33,6 @@ const postProjectPartner = async (req, res) => {
 		}
 		res.redirect("/admin/projectpartner");
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };

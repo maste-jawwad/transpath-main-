@@ -8,7 +8,6 @@ const viewEmail = async (req, res) => {
 			email,
 		});
 	} catch (err) {
-		console.log(err);
 		res.send(err);
 	}
 };
@@ -42,7 +41,6 @@ const deleteEmail = async (req, res) => {
 			res.send({ message: "Unable to find ID" });
 		}
 	} catch (err) {
-		console.log(err);
 		res.send(err);
 	}
 };

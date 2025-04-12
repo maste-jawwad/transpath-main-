@@ -5,12 +5,10 @@ const Schema = require("../model/Update.model");
 const view = async (req, res) => {
 	try {
 		const updates = await Schema.find({});
-		// console.log(updates);
 		res.render("admin/Update/index", {
 			updates,
 		});
 	} catch (error) {
-		console.log(error);
 		req.flash("error", error.message);
 		res.redirect("/admin");
 	}
@@ -24,7 +22,6 @@ const post = async (req, res) => {
 	try {
 		const { title, category, date, basin, link, description, div_id } =
 			req.body;
-		console.log(req.body);
 		let people = [];
 		if (req.body["people[][name]"] instanceof Array) {
 			let size = req.body["people[][name]"].length;
@@ -35,11 +32,9 @@ const post = async (req, res) => {
 					department: req.body["people[][department]"][i],
 					institute: req.body["people[][institute]"][i],
 				};
-				console.log(instance);
 				people.push(instance);
 			}
 		} else {
-			// console.log(req.body["people[][name]"]);
 			people.push({
 				name: req.body["people[][name]"],
 				designation: req.body["people[][designation]"],
@@ -47,14 +42,11 @@ const post = async (req, res) => {
 				institute: req.body["people[][institute]"],
 			});
 		}
-		console.log(people);
-		// console.log(req.files);
 		const download = req.files.download[0].filename;
 		const photos = [];
 		req.files.photos.forEach((file, i) => {
 			photos.push(file.filename);
 		});
-		// console.log(download);
 		const newUpdate = new Schema({
 			title,
 			category,
@@ -67,7 +59,6 @@ const post = async (req, res) => {
 			photos,
 			div_id,
 		});
-		console.log(newUpdate);
 		await newUpdate.save();
 		if (!newUpdate) {
 			req.flash("error", "Unable to create the update");
@@ -77,7 +68,6 @@ const post = async (req, res) => {
 		res.redirect("/admin/update/");
 		// res.send(req.files);
 	} catch (error) {
-		console.log(error);
 		req.flash("error", error.message);
 		res.redirect("/admin/update/add");
 	}
@@ -99,7 +89,6 @@ const remove = async (req, res) => {
 		});
 		res.redirect("/admin/update");
 	} catch (error) {
-		console.log(error);
 		req.flash("error", error.message);
 		res.redirect("/admin/update");
 	}

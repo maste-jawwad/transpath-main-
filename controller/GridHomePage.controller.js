@@ -3,10 +3,8 @@ const Grid = require("../model/GridHomePage.model");
 const getGridHome = async (req, res) => {
 	try {
 		const grid = await Grid.find({});
-		console.log(grid);
 		return res.render("admin/GridHome/index", { grid });
 	} catch (error) {
-		console.log(error.message);
 		return res.send(error);
 	}
 };
@@ -16,7 +14,6 @@ const addGridForm = async (req, res) => {
 		const grid = await Grid.find({});
 		return res.render("admin/GridHome/add", { grid });
 	} catch (error) {
-		console.log(error.message);
 		return res.send(error);
 	}
 };
@@ -57,7 +54,6 @@ const postGrid = async (req, res) => {
 
 		return res.redirect("/admin/homegrid");
 	} catch (error) {
-		console.log(error.message);
 		return res.send(error);
 	}
 };
@@ -74,7 +70,6 @@ const getSingleGrid = async (req, res) => {
 
 		return res.render("admin/GridHome/add", { grid });
 	} catch (error) {
-		console.log(error.message);
 		return res.send(error);
 	}
 };
@@ -122,7 +117,6 @@ const editGrid = async (req, res) => {
 
 		return res.redirect("/admin/homegrid");
 	} catch (error) {
-		console.log(error.message);
 		return res.send(error);
 	}
 };
@@ -138,7 +132,6 @@ const deleteGrid = async (req, res) => {
 			res.send({ message: "Failed, ID not found" });
 		}
 	} catch (error) {
-		console.log(error.message);
 		return res.send(error);
 	}
 };

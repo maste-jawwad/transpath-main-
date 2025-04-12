@@ -5,7 +5,6 @@ const view = async (req, res) => {
 		const people = await Schema.find({});
 		res.render("admin/MorePeople/index", { people });
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
@@ -33,7 +32,6 @@ const post = async (req, res) => {
 
 		res.redirect("/admin/phds");
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
@@ -44,7 +42,6 @@ const remove = async (req, res) => {
 		const instance = await Schema.findByIdAndDelete(id);
 		res.redirect("/admin/phds");
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };

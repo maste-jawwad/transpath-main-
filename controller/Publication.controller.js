@@ -7,7 +7,6 @@ const view = async (req, res) => {
 			publications,
 		});
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
@@ -20,8 +19,6 @@ const post = async (req, res) => {
 	try {
 		const { title, subtitle, date, author, type, link, description } =
 			req.body;
-
-		console.log(req.body);
 		if (!title || !subtitle || !date || !author) {
 			req.flash("error", "incomplete fields");
 			return res.redirect("/admin/publication/add");
@@ -43,7 +40,6 @@ const post = async (req, res) => {
 		}
 		res.redirect("/admin/publication");
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
@@ -57,7 +53,6 @@ const remove = async (req, res) => {
 		}
 		res.redirect("/admin/publication");
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };

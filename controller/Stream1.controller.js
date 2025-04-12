@@ -9,7 +9,6 @@ const view = async (req, res) => {
 			updates,
 		});
 	} catch (error) {
-		console.log(error);
 		req.flash("error", error.message);
 		res.redirect("/admin");
 	}
@@ -39,7 +38,6 @@ const post = async (req, res) => {
 		}
 		res.redirect("/admin/stream1");
 	} catch (error) {
-		console.log(error);
 		req.flash("error", error.message);
 		res.redirect("/admin");
 	}
@@ -49,14 +47,12 @@ const remove = async (req, res) => {
 	try {
 		const id = req.params.id;
 		const instance = await Schema.findById(id);
-		console.log(instance);
 		const img = `uploads/Stream1/${instance.photo}`;
 
 		if (fs.existsSync(img)) fs.unlinkSync(img);
 		await Schema.findByIdAndDelete(id);
 		res.redirect("/admin/stream1");
 	} catch (error) {
-		console.log(error);
 		req.flash("error", error.message);
 		res.redirect("/admin");
 	}

@@ -8,7 +8,6 @@ const view = async (req, res) => {
 			people,
 		});
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
@@ -53,7 +52,6 @@ const post = async (req, res) => {
 
 		res.redirect("/admin/people");
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
@@ -71,7 +69,6 @@ const remove = async (req, res) => {
 
 		res.redirect("/admin/people");
 	} catch (error) {
-		console.log(error);
 		res.send(error);
 	}
 };
