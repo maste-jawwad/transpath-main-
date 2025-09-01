@@ -74,21 +74,36 @@ const post = async (req, res) => {
 };
 
 const remove = async (req, res) => {
+	const session = await Schema.startSession();
+	session.startTransaction();
+
 	try {
 		const id = req.params.id;
-		const update = await Schema.findById(id);
+		const update = await Schema.findById(id).session(session);
 		if (!update) {
+			await session.abortTransaction();
+			session.endSession();
+
 			req.flash("error", `unable to find the update with id: ${id}`);
 			return res.redirect("/admin/update");
 		}
-		await Schema.findByIdAndDelete(id);
+
 		const foldername = update.title.replace(/\s/g, "").toLowerCase();
-		fs.rmdirSync(`./uploads/Update/${foldername}`, {
+		fs.rmSync(`./uploads/Update/${foldername}`, {
 			recursive: true,
 			force: true,
 		});
+
+		await Schema.findByIdAndDelete(id).session(session);
+
+		await session.commitTransaction();
+		session.endSession();
+
 		res.redirect("/admin/update");
 	} catch (error) {
+		await session.abortTransaction();
+		session.endSession();
+
 		req.flash("error", error.message);
 		res.redirect("/admin/update");
 	}
