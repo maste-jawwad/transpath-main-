@@ -94,6 +94,9 @@ app.use(bodyParser.urlencoded({
 
 app.use(morgan("dev"));
 
+const path = require('path');
+// Ensure Express looks for views in the correct directory regardless of working directory
+app.set("views", path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(mongoSanitize());
