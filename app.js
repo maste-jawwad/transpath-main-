@@ -485,6 +485,9 @@ app.use("/admin/publication", PublicationRoutes);
 app.use("/admin/update", UpdateRoutes);
 app.use("/admin/stream1", Stream1Routes);
 
+// Image serving route
+app.use('/uploads/Project_Partners', require('./routes/image.route'));
+
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error('Error:', err);

@@ -1,16 +1,22 @@
-const fs = require("fs");
-
+const mongoose = require('mongoose');
 const ProjectPartner = require("../model/ProjectPartner.model");
 
+let gfs;
+mongoose.connection.once('open', () => {
+    gfs = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
+        bucketName: 'uploads'
+    });
+});
+
 const viewProjectPartner = async (req, res) => {
-	try {
-		const projectPartners = await ProjectPartner.find({});
-		res.render("admin/ProjectPartner/index", {
-			projectPartners,
-		});
-	} catch (error) {
-		res.send(error);
-	}
+    try {
+        const projectPartners = await ProjectPartner.find({});
+        res.render("admin/ProjectPartner/index", {
+            projectPartners,
+        });
+    } catch (error) {
+        res.send(error);
+    }
 };
 
 const addProjectPartnerForm = async (req, res) => {
@@ -18,23 +24,25 @@ const addProjectPartnerForm = async (req, res) => {
 };
 
 const postProjectPartner = async (req, res) => {
-	try {
-		const { name, link } = req.body;
-		const photo = req.file ? req.file.filename : null;
-		const newProjectPartner = await new ProjectPartner({
-			name,
-			photo,
-			link,
-		});
-		await newProjectPartner.save();
-		if (!newProjectPartner) {
-			req.flash("error", "Cannot add partner");
-			return res.redirect("/admin/projectpartner/add");
-		}
-		res.redirect("/admin/projectpartner");
-	} catch (error) {
-		res.send(error);
-	}
+    try {
+        const { name, link } = req.body;
+        const photo = req.file ? req.file.filename : null;
+        
+        const newProjectPartner = await new ProjectPartner({
+            name,
+            photo,
+            link,
+        });
+        await newProjectPartner.save();
+        
+        if (!newProjectPartner) {
+            req.flash("error", "Cannot add partner");
+            return res.redirect("/admin/projectpartner/add");
+        }
+        res.redirect("/admin/projectpartner");
+    } catch (error) {
+        res.send(error);
+    }
 };
 
 const deleteProjectPartner = async (req, res) => {

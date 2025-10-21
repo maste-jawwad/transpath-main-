@@ -20,6 +20,7 @@
     }
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "MONGO_URI": "mongodb+srv://Prakhar:PrakharRajpali@cluster0.jsium.mongodb.net/BRWD2?retryWrites=true&w=majority"
   }
 }
