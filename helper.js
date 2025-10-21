@@ -11,8 +11,8 @@ const Update = require("./model/Update.model");
 
 const createAdmin = () => {
 	const newUser = new User({
-		username: "Admin",
-		password: "Admin123",
+		username: "admin",
+		password: "admin123",
 	});
 	bcrypt.genSalt(10, (err, salt) => {
 		bcrypt.hash(newUser.password, salt, (err, hash) => {

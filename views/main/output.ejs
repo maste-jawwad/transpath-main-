@@ -20,6 +20,37 @@
     body {
       overflow-x: hidden;
     }
+    
+    .lazy-image {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+
+    .lazy-image.loaded {
+      opacity: 1;
+    }
+    
+    .image-wrapper {
+      background-color: #f0f0f0;
+      position: relative;
+      overflow: hidden;
+    }
+    .image-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    
+    .image-wrapper::before {
+      content: "";
+      display: block;
+      padding-top: 66.67%; /* 3:2 aspect ratio */
+    }
 
     .isdeets-overlay {
       overflow-x: hidden;
@@ -260,9 +291,15 @@
                   <a href="/blogs/<%= update._id %>">
                     <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
                       <div class="is24 is-ab-card">
-                        <div class="image-wrapper is-in-about is-out"><img
-                            src="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
-                            loading="lazy" alt="">
+                        <div class="image-wrapper is-in-about is-out">
+                          <img src="/uploads/Update/<%= update.slug %>/<%= update.photos && update.photos[0] || 'default.jpg' %>"
+                               loading="lazy"
+                               alt="<%= update.title %>"
+                               class="lazy-image"
+                               width="300"
+                               height="200"
+                               style="object-fit: cover;"
+                               onerror="(function(img){ img.onerror=null; img.src=img.src.replace('<%= update.slug %>','<%= update.legacySlug %>'); })(this)">
                         </div>
                         <div class="is4">
                           <h4 class="is-white">
@@ -314,8 +351,11 @@
                                   <a href="<%= update.link %>" class="is-button w-inline-block">
                                     <div class="isbody">View Link</div>
                                   </a><img src="images/STAR.svg" loading="lazy" alt="" width="24" class="is-w65">
-                                  <a href="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.download %>"
-                                    class="is-button w-inline-block">
+                                  <a href="/uploads/Update/<%= update.slug %>/<%= update.download %>"
+                                    class="is-button w-inline-block download-link"
+                                    data-current-slug="<%= update.slug %>"
+                                    data-legacy-slug="<%= update.legacySlug %>"
+                                    data-filename="<%= update.download %>">
                                     <div class="isbody">Download</div>
                                   </a>
                                 </div>
@@ -329,7 +369,8 @@
                                 <% update.photos.forEach(photo=> { %>
                                   <div class="w-slide">
                                     <div class="is-slider-img"><img
-                                        src="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>"
+                                        src="/uploads/Update/<%= update.slug %>/<%= photo %>"
+                                        onerror="this.onerror=null; this.src=this.src.replace('<%= update.slug %>', '<%= update.legacySlug %>');"
                                         loading="lazy" alt="" class="is-inside-slide"></div>
                                   </div>
                                   <% }) %>
@@ -362,7 +403,7 @@
                                         </h4>
                                       </div>
                                       <div class="isbody">
-                                        <%= person.designation %> &amp; <%= person.department %>
+                                        <%= person.designation %> | <%= person.department %>
                                       </div>
                                       <div class="isbody isg50">
                                         <%= person.institute %>
@@ -401,7 +442,8 @@
                   <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
                     <div class="is24 is-ab-card">
                       <div class="image-wrapper is-in-about is-out"><img
-                          src="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
+                          src="/uploads/Update/<%= update.slug %>/<%= update.photos[0] %>"
+                          onerror="this.onerror=null; this.src=this.src.replace('<%= update.slug %>', '<%= update.legacySlug %>');"
                           loading="lazy" alt="">
                       </div>
                       <div class="is4">
@@ -454,8 +496,11 @@
                                   <a href="<%= update.link %>" class="is-button w-inline-block">
                                     <div class="isbody">View Link</div>
                                   </a><img src="images/STAR.svg" loading="lazy" alt="" width="24" class="is-w65">
-                                  <a href="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.download %>"
-                                    class="is-button w-inline-block">
+                                  <a href="/uploads/Update/<%= update.slug %>/<%= update.download %>"
+                                    class="is-button w-inline-block download-link"
+                                    data-current-slug="<%= update.slug %>"
+                                    data-legacy-slug="<%= update.legacySlug %>"
+                                    data-filename="<%= update.download %>">
                                     <div class="isbody">Download</div>
                                   </a>
                                 </div>
@@ -469,7 +514,8 @@
                                 <% update.photos.forEach(photo=> { %>
                                   <div class="w-slide">
                                     <div class="is-slider-img"><img
-                                        src="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>"
+                                        src="/uploads/Update/<%= update.slug %>/<%= photo %>"
+                                        onerror="this.onerror=null; this.src=this.src.replace('<%= update.slug %>', '<%= update.legacySlug %>');"
                                         loading="lazy" alt="" class="is-inside-slide"></div>
                                   </div>
                                   <% }) %>
@@ -503,7 +549,7 @@
                                         </h4>
                                       </div>
                                       <div class="isbody">
-                                        <%= person.designation %> &amp; <%= person.department %>
+                                        <%= person.designation %> | <%= person.department %>
                                       </div>
                                       <div class="isbody isg50">
                                         <%= person.institute %>
@@ -541,7 +587,8 @@
                   <div data-w-id="8ce1b3cb-cb21-c6f0-7154-f7116e4aa06b" class="is-about-wrapper">
                     <div class="is24 is-ab-card">
                       <div class="image-wrapper is-in-about is-out"><img
-                          src="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.photos[0] %>"
+                          src="/uploads/Update/<%= update.slug %>/<%= update.photos[0] %>"
+                          onerror="this.onerror=null; this.src=this.src.replace('<%= update.slug %>', '<%= update.legacySlug %>');"
                           loading="lazy" alt="">
                       </div>
                       <div class="is4">
@@ -594,8 +641,11 @@
                                   <a href="<%= update.link %>" class="is-button w-inline-block">
                                     <div class="isbody">View Link</div>
                                   </a><img src="images/STAR.svg" loading="lazy" alt="" width="24" class="is-w65">
-                                  <a href="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.download %>"
-                                    class="is-button w-inline-block">
+                                  <a href="/uploads/Update/<%= update.slug %>/<%= update.download %>"
+                                    class="is-button w-inline-block download-link"
+                                    data-current-slug="<%= update.slug %>"
+                                    data-legacy-slug="<%= update.legacySlug %>"
+                                    data-filename="<%= update.download %>">
                                     <div class="isbody">Download</div>
                                   </a>
                                 </div>
@@ -609,7 +659,8 @@
                                 <% update.photos.forEach(photo=> { %>
                                   <div class="w-slide">
                                     <div class="is-slider-img"><img
-                                        src="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>"
+                                        src="/uploads/Update/<%= update.slug %>/<%= photo %>"
+                                        onerror="this.onerror=null; this.src=this.src.replace('<%= update.slug %>', '<%= update.legacySlug %>');"
                                         loading="lazy" alt="" class="is-inside-slide"></div>
                                   </div>
                                   <% }) %>
@@ -643,7 +694,7 @@
                                         </h4>
                                       </div>
                                       <div class="isbody">
-                                        <%= person.designation %> &#124; <%= person.department %>
+                                        <%= person.designation %> | <%= person.department %>
                                       </div>
                                       <div class="isbody isg50">
                                         <%= person.institute %>
@@ -719,10 +770,15 @@
           <div class="is-basin">
             <div class="isbody is-white">© 2023 | Water Transformation Pathways Planning</div>
             <div class="is-footer-name">
-              <div class="isbody is-white is-name">Designed &amp; Co-Developed by </div>
+              <div class="isbody is-white is-name">Design: </div>
               <a href="https://www.linkedin.com/in/r-aryan/" target="_blank"
                 class="is-button is-footer-link w-inline-block">
-                <div class="isbody is-white">Aryan Rathod</div>
+                <div class="isbody is-white">Aryan Rathod (2023)</div>
+              </a>
+              <div class="isbody is-white is-name"> • Revamp &amp; Maintenance: </div>
+              <a href="https://www.linkedin.com/in/jawwad-maste" target="_blank"
+                class="is-button is-footer-link w-inline-block">
+                <div class="isbody is-white">Jawwad Maste (2025)</div>
               </a>
             </div>
           </div>
@@ -737,14 +793,114 @@
     crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <script>
+    // Progressive image loading
+    document.addEventListener('DOMContentLoaded', function() {
+        var lazyImages = document.querySelectorAll('.lazy-image');
+
+        function markLoadedIfComplete(img){
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.add('loaded');
+          }
+        }
+
+        // Always attach a load handler so cached/fallback loads also mark as loaded
+        lazyImages.forEach(img => {
+          img.addEventListener('load', function(){
+            this.classList.add('loaded');
+          });
+          // If already loaded (cache), mark immediately
+          markLoadedIfComplete(img);
+        });
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        // If it has already loaded via cache/fallback, mark it
+                        markLoadedIfComplete(img);
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback for older browsers
+            lazyImages.forEach(markLoadedIfComplete);
+        }
+    });
+
+    // Initialize intersection observer for dynamic content
+    function initLazyLoading(container) {
+        const images = container.querySelectorAll('.lazy-image:not(.loaded)');
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.onload = () => img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+    }
+
     // button click 
     $('.is24.is-ab-card').on('click', function () {
       $('body').toggleClass('no-scroll');
+      // Initialize lazy loading for newly visible content
+      setTimeout(() => initLazyLoading(this), 100);
     });
     // button click 
     $('.link-block-3.is-bt-close').on('click', function () {
       $('body').toggleClass('no-scroll');
     }); 
+
+    // Robust download fallback for all posts
+    (function(){
+      function head(url){
+        return fetch(url, { method: 'HEAD' });
+      }
+      function tryAlternatives(anchor){
+        const currentSlug = anchor.getAttribute('data-current-slug') || '';
+        const legacySlug = anchor.getAttribute('data-legacy-slug') || '';
+        const filename = anchor.getAttribute('data-filename') || '';
+        const base = '/uploads/Update/';
+        const primary = `${base}${currentSlug}/${filename}`;
+        const alternatives = [
+          `${base}${legacySlug}/${filename}`
+        ];
+        return head(primary).then(res=>{
+          if(res.ok){ return primary; }
+          throw new Error('primary missing');
+        }).catch(()=>{
+          let idx = 0;
+          return new Promise((resolve, reject)=>{
+            const next = ()=>{
+              if(idx >= alternatives.length) return reject(new Error('no alternatives'));
+              const url = alternatives[idx++];
+              head(url).then(r=>{ if(r.ok) resolve(url); else next(); }).catch(next);
+            };
+            next();
+          });
+        });
+      }
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('a.download-link');
+        if(!a) return;
+        e.preventDefault();
+        tryAlternatives(a).then(url=>{
+          a.href = url;
+          window.location.href = url;
+        }).catch(()=>{
+          window.location.href = a.href;
+        });
+      });
+    })();
   </script>
 </body>
 

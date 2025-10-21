@@ -1,4 +1,346 @@
 <%- include("../partials/header.ejs") %>
+    <!-- Image Management Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full">
+        <div class="relative top-20 mx-auto p-5 border w-3/4 md:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Manage Images</h3>
+                <div class="mt-4 space-y-4">
+                    <div class="grid grid-cols-2 gap-4" id="imageGrid">
+                        <!-- Images will be inserted here -->
+                    </div>
+                    <div id="selectedImagesCount" class="text-sm text-gray-500 mt-2"></div>
+                    <form id="uploadForm" class="mt-4">
+                        <div class="mt-2">
+                            <label class="block text-sm font-medium text-gray-700">Add New Images</label>
+                            <input type="file" multiple accept="image/*" id="newImages" 
+                                class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
+                        </div>
+                        <div class="mt-4 flex justify-end space-x-3">
+                            <button type="button" onclick="closeImageModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Cancel</button>
+                            <button type="button" onclick="saveImages()" class="save-images-btn px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Field Edit Modal -->
+    <div id="fieldModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full">
+        <div class="relative top-20 mx-auto p-5 border w-3/4 md:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Fields</h3>
+                <div class="mt-2 space-y-3">
+                    <label class="block text-sm text-gray-700">Title</label>
+                    <input id="editTitle" class="w-full px-3 py-2 border rounded" />
+
+                    <label class="block text-sm text-gray-700">Description</label>
+                    <textarea id="editDescription" rows="6" class="w-full px-3 py-2 border rounded"></textarea>
+
+                    <label class="block text-sm text-gray-700">Basin</label>
+                    <input id="editBasin" class="w-full px-3 py-2 border rounded" />
+
+                    <label class="block text-sm text-gray-700">Category</label>
+                    <input id="editCategory" class="w-full px-3 py-2 border rounded" />
+
+                    <label class="block text-sm text-gray-700">Date</label>
+                    <input id="editDate" type="date" class="w-full px-3 py-2 border rounded" />
+
+                    <label class="block text-sm text-gray-700">Link</label>
+                    <input id="editLink" class="w-full px-3 py-2 border rounded" />
+
+                    <label class="block text-sm text-gray-700">Div ID</label>
+                    <input id="editDivId" class="w-full px-3 py-2 border rounded" />
+                </div>
+                <div class="mt-4 flex justify-end space-x-3">
+                    <button onclick="closeFieldModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Cancel</button>
+                    <button onclick="saveFields()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Citation Edit Modal -->
+    <div id="citationModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full">
+        <div class="relative top-20 mx-auto p-5 border w-3/4 md:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Citation</h3>
+                <div class="mt-2">
+                    <textarea id="citationText" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                </div>
+                <div class="mt-4 flex justify-end space-x-3">
+                    <button onclick="closeCitationModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Cancel</button>
+                    <button onclick="saveCitation()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentProjectId = '';
+        let currentProjectTitle = '';
+        let currentProjectSlug = '';
+        let currentImages = [];
+        let imagesToDelete = new Set();
+        
+        // Add event listeners when the document loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.manage-images-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const photos = JSON.parse(this.dataset.photos);
+                    const title = this.dataset.title;
+                    const slug = this.dataset.slug;
+                    const legacy = this.dataset.legacy;
+                    openImageModal(id, photos, title, slug, legacy);
+                });
+            });
+
+            document.querySelectorAll('.edit-fields-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    try {
+                        const b64 = this.dataset.projectB64;
+                        const json = atob(b64 || '');
+                        const project = JSON.parse(json);
+                        openFieldModal(project);
+                    } catch (e) {
+                        alert('Failed to open editor: invalid data');
+                    }
+                });
+            });
+        });
+
+        function editCitation(projectId, currentCitation) {
+            currentProjectId = projectId;
+            document.getElementById('citationText').value = currentCitation;
+            document.getElementById('citationModal').classList.remove('hidden');
+        }
+
+        function closeCitationModal() {
+            document.getElementById('citationModal').classList.add('hidden');
+        }
+
+        function openImageModal(projectId, photos, title, slug, legacySlug) {
+            currentProjectId = projectId;
+            currentProjectTitle = title;
+            currentProjectSlug = slug || '';
+            currentImages = photos;
+            imagesToDelete.clear();
+            
+            const grid = document.getElementById('imageGrid');
+            grid.innerHTML = '';
+            
+            photos.forEach((photo, index) => {
+                const div = document.createElement('div');
+                div.className = 'relative group';
+                
+                const img = document.createElement('img');
+                img.src = `/uploads/Update/${currentProjectSlug}/${photo}`;
+                img.onerror = function(){ this.onerror=null; if (legacySlug) { this.src = this.src.replace(currentProjectSlug, legacySlug); } };
+                img.className = 'w-full h-32 object-cover rounded transition-opacity';
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors';
+                deleteBtn.dataset.photo = photo;
+                deleteBtn.innerHTML = `
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                `;
+                
+                // Add click handler
+                deleteBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (!imagesToDelete.has(photo)) {
+                        imagesToDelete.add(photo);
+                        img.style.opacity = '0.5';
+                        deleteBtn.classList.remove('bg-red-500');
+                        deleteBtn.classList.add('bg-gray-500');
+                    } else {
+                        imagesToDelete.delete(photo);
+                        img.style.opacity = '1';
+                        deleteBtn.classList.remove('bg-gray-500');
+                        deleteBtn.classList.add('bg-red-500');
+                    }
+                    updateSelectedCount();
+                });
+                
+                div.appendChild(img);
+                div.appendChild(deleteBtn);
+                grid.appendChild(div);
+            });
+            
+            document.getElementById('imageModal').classList.remove('hidden');
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+            document.getElementById('newImages').value = '';
+            imagesToDelete.clear();
+        }
+
+        function markForDeletion(photo) {
+            if (imagesToDelete.has(photo)) {
+                imagesToDelete.delete(photo);
+                document.querySelector(`button[data-photo="${photo}"]`).classList.remove('bg-gray-500');
+                document.querySelector(`button[data-photo="${photo}"]`).classList.add('bg-red-500');
+            } else {
+                imagesToDelete.add(photo);
+                document.querySelector(`button[data-photo="${photo}"]`).classList.remove('bg-red-500');
+                document.querySelector(`button[data-photo="${photo}"]`).classList.add('bg-gray-500');
+            }
+        }
+
+        async function saveImages() {
+            const formData = new FormData();
+            const fileInput = document.getElementById('newImages');
+            const submitButton = document.querySelector('.save-images-btn');
+            const originalButtonText = submitButton.textContent;
+            
+            try {
+                submitButton.textContent = 'Saving...';
+                submitButton.disabled = true;
+
+                // Add new images to form data
+                if (fileInput.files.length > 0) {
+                    Array.from(fileInput.files).forEach(file => {
+                        formData.append('newImages', file);
+                    });
+                }
+                
+                // Add images to delete
+                const imagesToDeleteArray = Array.from(imagesToDelete);
+                formData.append('imagesToDelete', JSON.stringify(imagesToDeleteArray));
+
+                console.log('Preparing to save changes:', {
+                    projectId: currentProjectId,
+                    newImages: fileInput.files.length,
+                    imagesToDelete: imagesToDeleteArray
+                });
+
+                // Make sure we're sending a valid project ID
+                if (!currentProjectId) {
+                    throw new Error('No project ID available');
+                }
+
+                const response = await fetch(`/admin/update/${currentProjectId}/photos`, {
+                    method: 'PATCH',
+                    body: formData,
+                    credentials: 'include', // Important for session cookies
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                // Handle auth redirects (HTML login page) and non-JSON gracefully
+                const contentType = response.headers.get('content-type') || '';
+                if (!response.ok) {
+                    if (contentType.includes('application/json')) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error(errorData.error || 'Failed to update images');
+                    } else {
+                        const text = await response.text();
+                        if (text.includes('<!DOCTYPE') || text.toLowerCase().includes('<html')) {
+                            // Probably redirected to login due to expired session
+                            alert('Your session may have expired. Please log in again.');
+                            window.location.href = '/login';
+                            return;
+                        }
+                        throw new Error('Server returned unexpected response');
+                    }
+                }
+
+                if (!contentType.includes('application/json')) {
+                    const text = await response.text();
+                    if (text.includes('<!DOCTYPE') || text.toLowerCase().includes('<html')) {
+                        alert('Your session may have expired. Please log in again.');
+                        window.location.href = '/login';
+                        return;
+                    }
+                    throw new Error('Unexpected non-JSON response from server');
+                }
+
+                const result = await response.json();
+                console.log('Server response:', result);
+                alert('Images updated successfully');
+                window.location.reload();
+            } catch (error) {
+                console.error('Error updating images:', error);
+                alert('Error updating images: ' + error.message);
+            } finally {
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            }
+        }
+
+        async function saveCitation() {
+            const citation = document.getElementById('citationText').value;
+            try {
+                const response = await fetch(`/admin/update/${currentProjectId}/citation`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ citation })
+                });
+
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Failed to update citation');
+                }
+            } catch (error) {
+                alert('Error updating citation');
+            }
+        }
+
+        // Field editing logic
+        function openFieldModal(project) {
+            currentProjectId = project._id;
+            currentProjectSlug = project.slug;
+            document.getElementById('editTitle').value = project.title || '';
+            document.getElementById('editDescription').value = project.description || '';
+            document.getElementById('editBasin').value = project.basin || '';
+            document.getElementById('editCategory').value = project.category || '';
+            document.getElementById('editDate').value = project.date ? new Date(project.date).toISOString().slice(0,10) : '';
+            document.getElementById('editLink').value = project.link || '';
+            document.getElementById('editDivId').value = project.div_id || '';
+            document.getElementById('fieldModal').classList.remove('hidden');
+        }
+
+        function closeFieldModal() {
+            document.getElementById('fieldModal').classList.add('hidden');
+        }
+
+        async function saveFields() {
+            const payload = {
+                title: document.getElementById('editTitle').value,
+                description: document.getElementById('editDescription').value,
+                basin: document.getElementById('editBasin').value,
+                category: document.getElementById('editCategory').value,
+                date: document.getElementById('editDate').value,
+                link: document.getElementById('editLink').value,
+                div_id: document.getElementById('editDivId').value
+            };
+
+            try {
+                const response = await fetch(`/admin/update/${currentProjectId}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    const err = await response.json().catch(() => ({}));
+                    throw new Error(err.error || 'Failed to update fields');
+                }
+                window.location.reload();
+            } catch (e) {
+                alert('Error updating fields: ' + e.message);
+            }
+        }
+    </script>
+
     <h1 class="text-3xl text-black pb-6">Projects</h1>
     <div class="mt-6">
         <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/admin/update/add">Add
@@ -16,11 +358,12 @@
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Category</th>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Date</th>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Basin</th>
-                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">description</th>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Description</th>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Link</td>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">download</th>
                         <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">photos</td>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">people</td>
+                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Citation</td>
                         <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Delete</td>
                     </tr>
                 </thead>
@@ -49,15 +392,37 @@
                                     <a class="hover:text-blue-500" href="<%= project.link %>" target="_blank">View</a>
                                 </td>
                                 <td class="text-left py-3 px-4">
-                                    <a class="hover:text-blue-500"
-                                        href="/uploads/Update/<%= project.title.replace(/\s/g, '').toLowerCase() %>/<%= project.download %>"
+                                    <a class="hover:text-blue-500 download-link"
+                                        href="/uploads/Update/<%= project.slug %>/<%= project.download %>"
+                                        data-current-slug="<%= project.slug %>"
+                                        data-legacy-slug="<%= project.legacySlug %>"
+                                        data-filename="<%= project.download %>"
                                         target="_blank">Download</a>
                                 </td>
                                 <td class="text-left py-3 px-4 w-1/5">
-                                    <% project.photos.forEach((photo)=> { %>
-                                        <img class="w-full h-full"
-                                            src="/uploads/Update/<%= project.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>" />
-                                        <% }) %>
+                                    <div class="space-y-2">
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <% project.photos.forEach((photo)=> { %>
+                                                <img class="w-full h-32 object-cover rounded"
+                                                    src="/uploads/Update/<%= project.slug %>/<%= photo %>"
+                                                    onerror="this.onerror=null; this.src=this.src.replace('<%= project.slug %>','<%= project.legacySlug %>')" />
+                                            <% }) %>
+                                        </div>
+                                        <button 
+                                            class="manage-images-btn w-full px-4 py-2 text-blue-500 hover:text-blue-700 border border-blue-500 rounded"
+                                            data-id="<%=project._id%>"
+                                            data-photos='<%- JSON.stringify(project.photos) %>'
+                                            data-title="<%=project.title%>"
+                                            data-slug="<%=project.slug%>"
+                                            data-legacy="<%=project.legacySlug%>">
+                                            Manage Images
+                                        </button>
+                                        <button 
+                                            class="edit-fields-btn w-full px-4 py-2 text-blue-500 hover:text-blue-700 border border-blue-500 rounded"
+                                            data-project-b64="<%- Buffer.from(JSON.stringify({ _id: project._id, slug: project.slug, title: project.title, description: project.description || '', basin: project.basin || '', category: project.category || '', date: project.date, link: project.link || '', div_id: project.div_id || '' })).toString('base64') %>">
+                                            Edit Details
+                                        </button>
+                                    </div>
                                 </td>
                                 <td class="text-left py-3 px-4">
                                     <% project.people.forEach(person=> { %>
@@ -67,6 +432,17 @@
                                                     Institute: <%= person.institute %> <br />
                                                         <% }) %>
                                 </td>
+                                
+                                <td class="text-left py-3 px-4">
+                                    <div class="flex flex-col space-y-2">
+                                        <div><%= project.citation || 'No citation available' %></div>
+                                        <button onclick="editCitation('<%=project._id%>', `<%=project.citation || ''%>`)" 
+                                                class="text-blue-500 hover:text-blue-700">
+                                            Edit Citation
+                                        </button>
+                                    </div>
+                                </td>
+
 
                                 <td class="text-left py-3 px-4">
                                     <form class="mx-2" action="/admin/update/<%=project._id%>?_method=delete"
@@ -82,4 +458,30 @@
             </table>
         </div>
     </div>
+    <script>
+        // Robust download fallback for admin table
+        (function(){
+            function head(url){ return fetch(url, { method: 'HEAD' }); }
+            function resolveHref(a){
+                const currentSlug = a.getAttribute('data-current-slug') || '';
+                const legacySlug = a.getAttribute('data-legacy-slug') || '';
+                const filename = a.getAttribute('data-filename') || '';
+                const base = '/uploads/Update/';
+                const primary = `${base}${currentSlug}/${filename}`;
+                const alternatives = [ `${base}${legacySlug}/${filename}` ];
+                return head(primary).then(r=>{ if(r.ok) return primary; throw 0; }).catch(()=>{
+                    let i=0; return new Promise((res,rej)=>{
+                        const next=()=>{ if(i>=alternatives.length) return rej(); const u=alternatives[i++]; head(u).then(rr=>{ if(rr.ok) res(u); else next(); }).catch(next); };
+                        next();
+                    });
+                });
+            }
+            document.addEventListener('click', function(e){
+                const a = e.target.closest('a.download-link');
+                if(!a) return;
+                e.preventDefault();
+                resolveHref(a).then(url=>{ a.href=url; window.open(url, '_blank'); }).catch(()=>{ window.open(a.href, '_blank'); });
+            });
+        })();
+    </script>
     <%- include("../partials/footer.ejs") %>

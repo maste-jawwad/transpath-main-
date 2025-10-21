@@ -1,5 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
-<!--  Last Published: Thu Dec 21 2023 18:00:51 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html> 
 <html data-wf-page="65847c1f88441e2edf835e39" data-wf-site="646b1c84a7e64d810254ac83">
 
 <head>
@@ -46,7 +45,6 @@
     }
 
     ::-moz-selection {
-      /* Code for Firefox */
       color: auto;
       background: #7a7a7f;
     }
@@ -59,22 +57,26 @@
     .isproj-overlay {
       overflow-x: hidden;
     }
+
+    /* 🔥 Reduce gap between Authors & Citation */
+    .authors-section {
+      margin-bottom: 12px !important;
+    }
+    .citation-section {
+      margin-top: 0 !important;
+    }
   </style>
   <script>
     //refresh
     var context;
     var $window = $(window);
-    // run this right away to set context
     if ($window.width() <= 991 && $window.width() >= 500) {
       context = 'small';
     } else if ($window.width() > 991) {
       context = 'large';
     }
-    // refresh the page only if you're crossing into a context
-    // that isn't already set
     $(window).resize(function () {
       if (($window.width() <= 991) && ($window.width() >= 500) && (context != 'small')) {
-        //refresh the page
         location.reload();
       } else if (context != 'large' && ($window.width() > 991)) {
         location.reload();
@@ -117,8 +119,9 @@
                 <a href="<%= update.link %>" class="is-button w-inline-block">
                   <div class="isbody">View Link</div>
                 </a><img src="/images/STAR.svg" class="is-w65">
-                <a href="uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= update.download %>"
-                  class="is-button w-inline-block">
+                <a href="/uploads/Update/<%= alternativeSlugs.current %>/<%= update.download %>"
+                  class="is-button w-inline-block"
+                  id="download-link">
                   <div class="isbody">Download</div>
                 </a>
               </div>
@@ -131,7 +134,7 @@
               <% update.photos.forEach(photo=> { %>
                 <div class="w-slide">
                   <div class="is-slider-img"><img
-                      src="/uploads/Update/<%= update.title.replace(/\s/g, '').toLowerCase() %>/<%= photo %>"
+                      src="/uploads/Update/<%= alternativeSlugs.current %>/<%= photo %>"
                       loading="lazy" alt="" class="is-inside-slide"></div>
                 </div>
                 <% }) %>
@@ -145,31 +148,50 @@
             <div class="slide-nav w-slider-nav w-round w-num"></div>
           </div>
           <div class="isbody is-updates"><%- update.description %></div>
-          <div class="is24 is-updates">
+
+          <!-- 🔥 AUTHORS SECTION -->
+          <div class="is24 is-updates authors-section">
             <div class="is-sub">
-              <h5>Authors &amp; Contributors</h5><img src="/images/STAR.svg" loading="lazy" alt="" class="is-65">
+              <h5>Authors &amp; Contributors</h5><img src="/images/STAR.svg" loading="lazy" alt="" class="is-65">
             </div>
             <div class="is-partner-grid is-more">
-              <% update.people.forEach(person=> { %>
-                <div class="is24">
-                  <div class="is12 is-vert">
-                    <div class="is-sub">
-                      <h4 class="is-deets-header">
-                        <%= person.name %>
-                      </h4>
+              <% try { %>
+                <% update.people.forEach(person => { %>
+                  <div class="is24">
+                    <div class="is12 is-vert">
+                      <div class="is-sub">
+                        <h4 class="is-deets-header"><%= person.name %></h4>
+                      </div>
+                      <div class="isbody">
+                        <%= person.designation %> | <%= person.department %>
+                      </div>
+                      <div class="isbody isg50">
+                        <%= person.institute %>
+                      </div>
                     </div>
-                    <div class="isbody">
-                      <%= person.designation %> &#124; <%= person.department %>
-                    </div>
-                    <div class="isbody isg50">
-                      <%= person.institute %>
-                    </div>
+                    <div class="is-hori-line"></div>
                   </div>
-                  <div class="is-hori-line"></div>
-                </div>
                 <% }) %>
+              <% } catch (error) { %>
+                <div class="is24">
+                  <p>Error loading authors</p>
+                </div>
+              <% } %>
             </div>
           </div>
+
+          <!-- 🔥 CITATION SECTION (now directly below Authors) -->
+          <% if (update.citation && update.citation.length > 0) { %>
+            <div class="is24 is-updates citation-section">
+              <div class="is-sub">
+                <h5>Citation</h5><img src="/images/STAR.svg" loading="lazy" alt="" class="is-65">
+              </div>
+              <div class="isbody">
+                <%= update.citation %>
+              </div>
+            </div>
+          <% } %>
+
         </div>
       </div>
     </div>
@@ -178,6 +200,97 @@
     type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"></script>
   <script src="/js/webflow.js" type="text/javascript"></script>
+  <script>
+    // Handle image fallback for different folder naming conventions
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('.is-inside-slide');
+      const downloadLink = document.getElementById('download-link');
+      
+      // Pre-calculate alternative folder names
+      const currentSlug = '<%= alternativeSlugs.current %>';
+      const legacySlug = '<%= alternativeSlugs.legacy %>';
+      const urlDecodedSlug = '<%= alternativeSlugs.urlDecoded %>';
+      const alphanumericSlug = '<%= alternativeSlugs.alphanumeric %>';
+      
+      // Function to try different folder naming conventions
+      function tryAlternativePaths(originalSrc, filename) {
+        const basePath = '/uploads/Update/';
+        const alternatives = [
+          basePath + legacySlug + '/' + filename,
+          basePath + urlDecodedSlug + '/' + filename,
+          basePath + alphanumericSlug + '/' + filename
+        ];
+        
+        return alternatives;
+      }
+      
+      // Handle image fallbacks
+      images.forEach(function(img) {
+        img.addEventListener('error', function() {
+          const originalSrc = this.src;
+          const filename = originalSrc.split('/').pop();
+          const alternatives = tryAlternativePaths(originalSrc, filename);
+          
+          let currentIndex = 0;
+          const tryNext = () => {
+            if (currentIndex < alternatives.length) {
+              this.src = alternatives[currentIndex];
+              currentIndex++;
+            }
+          };
+          
+          this.onerror = tryNext;
+          tryNext();
+        });
+      });
+      
+      // Handle download link fallback
+      if (downloadLink) {
+        downloadLink.addEventListener('click', function(e) {
+          // Prevent immediate navigation so we can try fallbacks first
+          e.preventDefault();
+          // Check if the file exists by trying to fetch it
+          fetch(this.href, { method: 'HEAD' })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('File not found');
+              }
+              // Primary exists; proceed to download
+              window.location.href = this.href;
+            })
+            .catch(() => {
+              // Try alternative paths
+              const originalHref = this.href;
+              const filename = originalHref.split('/').pop();
+              const alternatives = tryAlternativePaths(originalHref, filename);
+              
+              // Try each alternative
+              let currentIndex = 0;
+              const tryNextDownload = () => {
+                if (currentIndex < alternatives.length) {
+                  fetch(alternatives[currentIndex], { method: 'HEAD' })
+                    .then(response => {
+                      if (response.ok) {
+                        this.href = alternatives[currentIndex];
+                        window.location.href = this.href;
+                      } else {
+                        currentIndex++;
+                        tryNextDownload();
+                      }
+                    })
+                    .catch(() => {
+                      currentIndex++;
+                      tryNextDownload();
+                    });
+                }
+              };
+              
+              tryNextDownload();
+            });
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
